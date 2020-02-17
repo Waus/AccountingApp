@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'db0.dbo.config' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="config">
+          <Key>
+            <PropertyRef Name="my_name" />
+            <PropertyRef Name="my_address1" />
+            <PropertyRef Name="my_address2" />
+            <PropertyRef Name="my_nip" />
+            <PropertyRef Name="my_email" />
+            <PropertyRef Name="schema_version" />
+            <PropertyRef Name="form_variant" />
+          </Key>
+          <Property Name="my_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="my_address1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="my_address2" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="my_nip" Type="int" Nullable="false" />
+          <Property Name="my_email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="schema_version" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="form_variant" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="invoice">
+          <Key>
+            <PropertyRef Name="invoice_id" />
+          </Key>
+          <Property Name="invoice_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="invoice_number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="amount_net" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="amount_vat" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="vat_rate" Type="numeric" Precision="4" Scale="2" />
+          <Property Name="contractor_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="contractor_address1" Type="nvarchar" MaxLength="50" />
+          <Property Name="contractor_address2" Type="nvarchar" MaxLength="50" />
+          <Property Name="contractor_nip" Type="int" />
+          <Property Name="income" Type="bit" />
+          <Property Name="date_of_issue" Type="date" />
+          <Property Name="date_of_sale" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'db0.dbo.test' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="test">
+          <Key>
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="invoice" EntityType="Self.invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="config" EntityType="Self.config" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [config].[my_name] AS [my_name], 
+    [config].[my_address1] AS [my_address1], 
+    [config].[my_address2] AS [my_address2], 
+    [config].[my_nip] AS [my_nip], 
+    [config].[my_email] AS [my_email], 
+    [config].[schema_version] AS [schema_version], 
+    [config].[form_variant] AS [form_variant]
+    FROM [dbo].[config] AS [config]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="test" EntityType="Self.test" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [test].[name] AS [name]
+    FROM [dbo].[test] AS [test]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="config">
+          <Key>
+            <PropertyRef Name="my_name" />
+            <PropertyRef Name="my_address1" />
+            <PropertyRef Name="my_address2" />
+            <PropertyRef Name="my_nip" />
+            <PropertyRef Name="my_email" />
+            <PropertyRef Name="schema_version" />
+            <PropertyRef Name="form_variant" />
+          </Key>
+          <Property Name="my_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="my_address1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="my_address2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="my_nip" Type="Int32" Nullable="false" />
+          <Property Name="my_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="schema_version" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="form_variant" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="db0Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="config" EntityType="Self.config" />
+          <EntitySet Name="invoice" EntityType="Model.invoice" />
+          <EntitySet Name="test" EntityType="Model.test" />
+        </EntityContainer>
+        <EntityType Name="invoice">
+          <Key>
+            <PropertyRef Name="invoice_id" />
+          </Key>
+          <Property Name="invoice_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="invoice_number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="amount_net" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="amount_vat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="vat_rate" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="contractor_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="contractor_address1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="contractor_address2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="contractor_nip" Type="Int32" />
+          <Property Name="income" Type="Boolean" />
+          <Property Name="date_of_issue" Type="DateTime" Precision="0" />
+          <Property Name="date_of_sale" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="test">
+          <Key>
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="db0Entities">
+          <EntitySetMapping Name="config">
+            <EntityTypeMapping TypeName="Model.config">
+              <MappingFragment StoreEntitySet="config">
+                <ScalarProperty Name="my_name" ColumnName="my_name" />
+                <ScalarProperty Name="my_address1" ColumnName="my_address1" />
+                <ScalarProperty Name="my_address2" ColumnName="my_address2" />
+                <ScalarProperty Name="my_nip" ColumnName="my_nip" />
+                <ScalarProperty Name="my_email" ColumnName="my_email" />
+                <ScalarProperty Name="schema_version" ColumnName="schema_version" />
+                <ScalarProperty Name="form_variant" ColumnName="form_variant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="invoice">
+            <EntityTypeMapping TypeName="Model.invoice">
+              <MappingFragment StoreEntitySet="invoice">
+                <ScalarProperty Name="date_of_sale" ColumnName="date_of_sale" />
+                <ScalarProperty Name="date_of_issue" ColumnName="date_of_issue" />
+                <ScalarProperty Name="income" ColumnName="income" />
+                <ScalarProperty Name="contractor_nip" ColumnName="contractor_nip" />
+                <ScalarProperty Name="contractor_address2" ColumnName="contractor_address2" />
+                <ScalarProperty Name="contractor_address1" ColumnName="contractor_address1" />
+                <ScalarProperty Name="contractor_name" ColumnName="contractor_name" />
+                <ScalarProperty Name="vat_rate" ColumnName="vat_rate" />
+                <ScalarProperty Name="amount_vat" ColumnName="amount_vat" />
+                <ScalarProperty Name="amount_net" ColumnName="amount_net" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="invoice_number" ColumnName="invoice_number" />
+                <ScalarProperty Name="invoice_id" ColumnName="invoice_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="test">
+            <EntityTypeMapping TypeName="Model.test">
+              <MappingFragment StoreEntitySet="test">
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
