@@ -17,6 +17,8 @@ namespace JPK_generator.Forms
 
         public event SaveFormEvent OnSave;
 
+
+
         public InvoiceEditForm()
         {
             InitializeComponent();
@@ -32,6 +34,11 @@ namespace JPK_generator.Forms
             //var a = bindingSource.Current;
             if (OnSave != null)
                 OnSave(bindingSource.Current, this);
+        }
+
+        private void CancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

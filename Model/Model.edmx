@@ -43,14 +43,6 @@ warning 6002: The table/view 'db0.dbo.config' does not have a primary key define
           <Property Name="date_of_issue" Type="date" />
           <Property Name="date_of_sale" Type="date" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'db0.dbo.test' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="test">
-          <Key>
-            <PropertyRef Name="name" />
-          </Key>
-          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="invoice" EntityType="Self.invoice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="config" EntityType="Self.config" store:Type="Tables" store:Schema="dbo">
@@ -63,11 +55,6 @@ warning 6002: The table/view 'db0.dbo.test' does not have a primary key defined.
     [config].[schema_version] AS [schema_version], 
     [config].[form_variant] AS [form_variant]
     FROM [dbo].[config] AS [config]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="test" EntityType="Self.test" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [test].[name] AS [name]
-    FROM [dbo].[test] AS [test]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -95,7 +82,6 @@ warning 6002: The table/view 'db0.dbo.test' does not have a primary key defined.
         <EntityContainer Name="db0Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="config" EntityType="Self.config" />
           <EntitySet Name="invoice" EntityType="Model.invoice" />
-          <EntitySet Name="test" EntityType="Model.test" />
         </EntityContainer>
         <EntityType Name="invoice">
           <Key>
@@ -114,12 +100,6 @@ warning 6002: The table/view 'db0.dbo.test' does not have a primary key defined.
           <Property Name="income" Type="Boolean" />
           <Property Name="date_of_issue" Type="DateTime" Precision="0" />
           <Property Name="date_of_sale" Type="DateTime" Precision="0" />
-        </EntityType>
-        <EntityType Name="test">
-          <Key>
-            <PropertyRef Name="name" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -156,13 +136,6 @@ warning 6002: The table/view 'db0.dbo.test' does not have a primary key defined.
                 <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="invoice_number" ColumnName="invoice_number" />
                 <ScalarProperty Name="invoice_id" ColumnName="invoice_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="test">
-            <EntityTypeMapping TypeName="Model.test">
-              <MappingFragment StoreEntitySet="test">
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

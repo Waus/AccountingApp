@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.EditBtn = new System.Windows.Forms.Button();
-            this.invoiceidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.invoicenumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountnetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +43,9 @@
             this.dateofissueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateofsaleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.EditBtn = new System.Windows.Forms.Button();
+            this.AddNewBtn = new System.Windows.Forms.Button();
+            this.DeleteBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
@@ -54,10 +55,11 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.invoiceidDataGridViewTextBoxColumn,
             this.invoicenumberDataGridViewTextBoxColumn,
             this.descriptionDataGridViewTextBoxColumn,
             this.amountnetDataGridViewTextBoxColumn,
@@ -71,29 +73,12 @@
             this.dateofissueDataGridViewTextBoxColumn,
             this.dateofsaleDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.bindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 86);
+            this.dataGridView1.Location = new System.Drawing.Point(2, 86);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(749, 337);
+            this.dataGridView1.Size = new System.Drawing.Size(789, 337);
             this.dataGridView1.TabIndex = 4;
-            // 
-            // EditBtn
-            // 
-            this.EditBtn.Location = new System.Drawing.Point(21, 21);
-            this.EditBtn.Name = "EditBtn";
-            this.EditBtn.Size = new System.Drawing.Size(75, 23);
-            this.EditBtn.TabIndex = 5;
-            this.EditBtn.Text = "Edytuj";
-            this.EditBtn.UseVisualStyleBackColor = true;
-            this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
-            // 
-            // invoiceidDataGridViewTextBoxColumn
-            // 
-            this.invoiceidDataGridViewTextBoxColumn.DataPropertyName = "invoice_id";
-            this.invoiceidDataGridViewTextBoxColumn.HeaderText = "ID faktury";
-            this.invoiceidDataGridViewTextBoxColumn.Name = "invoiceidDataGridViewTextBoxColumn";
-            this.invoiceidDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // invoicenumberDataGridViewTextBoxColumn
             // 
@@ -160,7 +145,7 @@
             // 
             // incomeDataGridViewTextBoxColumn
             // 
-            this.incomeDataGridViewTextBoxColumn.DataPropertyName = "income";
+            this.incomeDataGridViewTextBoxColumn.DataPropertyName = "incomeText";
             this.incomeDataGridViewTextBoxColumn.HeaderText = "Faktura sprzedaży";
             this.incomeDataGridViewTextBoxColumn.Name = "incomeDataGridViewTextBoxColumn";
             this.incomeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -183,11 +168,44 @@
             // 
             this.bindingSource.DataSource = typeof(JPK_generator.Model.invoice);
             // 
+            // EditBtn
+            // 
+            this.EditBtn.Location = new System.Drawing.Point(129, 21);
+            this.EditBtn.Name = "EditBtn";
+            this.EditBtn.Size = new System.Drawing.Size(75, 23);
+            this.EditBtn.TabIndex = 5;
+            this.EditBtn.Text = "Edytuj";
+            this.EditBtn.UseVisualStyleBackColor = true;
+            this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
+            // 
+            // AddNewBtn
+            // 
+            this.AddNewBtn.Location = new System.Drawing.Point(23, 21);
+            this.AddNewBtn.Name = "AddNewBtn";
+            this.AddNewBtn.Size = new System.Drawing.Size(75, 23);
+            this.AddNewBtn.TabIndex = 6;
+            this.AddNewBtn.Text = "Dodaj nową";
+            this.AddNewBtn.UseVisualStyleBackColor = true;
+            this.AddNewBtn.Click += new System.EventHandler(this.AddNewBtn_Click);
+            // 
+            // DeleteBtn
+            // 
+            this.DeleteBtn.Location = new System.Drawing.Point(235, 21);
+            this.DeleteBtn.Name = "DeleteBtn";
+            this.DeleteBtn.Size = new System.Drawing.Size(75, 23);
+            this.DeleteBtn.TabIndex = 7;
+            this.DeleteBtn.Text = "Usuń";
+            this.DeleteBtn.UseVisualStyleBackColor = true;
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(789, 435);
+            this.Controls.Add(this.DeleteBtn);
+            this.Controls.Add(this.AddNewBtn);
             this.Controls.Add(this.EditBtn);
             this.Controls.Add(this.dataGridView1);
             this.Name = "MainForm";
@@ -203,7 +221,6 @@
         private System.Windows.Forms.BindingSource bindingSource;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button EditBtn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn invoiceidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn invoicenumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountnetDataGridViewTextBoxColumn;
@@ -216,6 +233,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn incomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateofissueDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateofsaleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button AddNewBtn;
+        private System.Windows.Forms.Button DeleteBtn;
     }
 }
 

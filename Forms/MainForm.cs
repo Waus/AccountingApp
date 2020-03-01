@@ -19,12 +19,11 @@ namespace JPK_generator
         {
             SetController();
             InitializeComponent();
-            //bindingSource.ResetBindings(false);
         }
 
+        public event Action<object, MainForm> OnDelete;
 
 
-        
 
         public void SetDataSource(object data)
         {
@@ -41,7 +40,25 @@ namespace JPK_generator
         private void EditBtn_Click(object sender, EventArgs e)
         {
             if (controller != null)
-                controller.ShowEditForm(bindingSource);
+            {
+                invoice invoice = bindingSource.Current as invoice;
+                controller.ShowEditForm(invoice);
+            }
+        }
+
+        private void AddNewBtn_Click(object sender, EventArgs e)
+        {
+            if (controller != null)
+            {
+                invoice invoice = new invoice();
+                controller.ShowEditForm(invoice);
+            }
+        }
+
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            if (OnDelete != null)
+                OnDelete(bindingSource.Current, this);
         }
     }
 }

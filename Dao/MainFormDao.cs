@@ -15,11 +15,23 @@ namespace JPK_generator.Dao
             context = new db0Entities();
         }
 
-        public void Save(invoice invoice)
+        public void SaveNew(invoice newInvoice)
         {
-            context.invoice.Add(invoice);
-            //test invoice = entity as test;
-            //context.test.Add(invoice);
+            context.invoice.Add(newInvoice);
+            context.SaveChanges();
+        }
+
+        public void Save(invoice newInvoice)
+        {
+            var editedInvoice = context.invoice.Where(a => a.invoice_id == newInvoice.invoice_id).First();
+            newInvoice.invoice_id = editedInvoice.invoice_id;
+            context.Entry(editedInvoice).CurrentValues.SetValues(newInvoice);
+            context.SaveChanges();
+        }
+
+        public void Delete(invoice entity)
+        {
+            context.invoice.Remove(entity);
             context.SaveChanges();
         }
 
@@ -32,5 +44,7 @@ namespace JPK_generator.Dao
         {
             return context.invoice.Where(a => a.invoice_id == invoiceId).FirstOrDefault();
         }
+
+        
     }
 }

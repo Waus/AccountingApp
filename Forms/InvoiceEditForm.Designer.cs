@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.InvoiceNumberLbl = new System.Windows.Forms.Label();
             this.InvoiceNumberTB = new System.Windows.Forms.TextBox();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DescriptionTB = new System.Windows.Forms.TextBox();
             this.DescriptionLbl = new System.Windows.Forms.Label();
             this.NetAmountTB = new System.Windows.Forms.TextBox();
@@ -55,6 +54,7 @@
             this.IncomeCB = new System.Windows.Forms.CheckBox();
             this.SaveBtn = new System.Windows.Forms.Button();
             this.CancelBtn = new System.Windows.Forms.Button();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,25 +72,21 @@
             this.InvoiceNumberTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "invoice_number", true));
             this.InvoiceNumberTB.Location = new System.Drawing.Point(37, 52);
             this.InvoiceNumberTB.Name = "InvoiceNumberTB";
-            this.InvoiceNumberTB.Size = new System.Drawing.Size(100, 20);
+            this.InvoiceNumberTB.Size = new System.Drawing.Size(180, 20);
             this.InvoiceNumberTB.TabIndex = 1;
-            // 
-            // bindingSource
-            // 
-            this.bindingSource.DataSource = typeof(JPK_generator.Model.invoice);
             // 
             // DescriptionTB
             // 
             this.DescriptionTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "description", true));
-            this.DescriptionTB.Location = new System.Drawing.Point(439, 127);
+            this.DescriptionTB.Location = new System.Drawing.Point(37, 359);
             this.DescriptionTB.Name = "DescriptionTB";
-            this.DescriptionTB.Size = new System.Drawing.Size(100, 20);
+            this.DescriptionTB.Size = new System.Drawing.Size(582, 20);
             this.DescriptionTB.TabIndex = 3;
             // 
             // DescriptionLbl
             // 
             this.DescriptionLbl.AutoSize = true;
-            this.DescriptionLbl.Location = new System.Drawing.Point(436, 102);
+            this.DescriptionLbl.Location = new System.Drawing.Point(34, 334);
             this.DescriptionLbl.Name = "DescriptionLbl";
             this.DescriptionLbl.Size = new System.Drawing.Size(28, 13);
             this.DescriptionLbl.TabIndex = 2;
@@ -99,15 +95,15 @@
             // NetAmountTB
             // 
             this.NetAmountTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "amount_net", true));
-            this.NetAmountTB.Location = new System.Drawing.Point(439, 205);
+            this.NetAmountTB.Location = new System.Drawing.Point(439, 130);
             this.NetAmountTB.Name = "NetAmountTB";
-            this.NetAmountTB.Size = new System.Drawing.Size(100, 20);
+            this.NetAmountTB.Size = new System.Drawing.Size(180, 20);
             this.NetAmountTB.TabIndex = 5;
             // 
             // NetAmountLbl
             // 
             this.NetAmountLbl.AutoSize = true;
-            this.NetAmountLbl.Location = new System.Drawing.Point(436, 180);
+            this.NetAmountLbl.Location = new System.Drawing.Point(436, 105);
             this.NetAmountLbl.Name = "NetAmountLbl";
             this.NetAmountLbl.Size = new System.Drawing.Size(64, 13);
             this.NetAmountLbl.TabIndex = 4;
@@ -116,15 +112,15 @@
             // VatAmountTB
             // 
             this.VatAmountTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "amount_vat", true));
-            this.VatAmountTB.Location = new System.Drawing.Point(439, 286);
+            this.VatAmountTB.Location = new System.Drawing.Point(439, 208);
             this.VatAmountTB.Name = "VatAmountTB";
-            this.VatAmountTB.Size = new System.Drawing.Size(100, 20);
+            this.VatAmountTB.Size = new System.Drawing.Size(180, 20);
             this.VatAmountTB.TabIndex = 7;
             // 
             // VatAmountLbl
             // 
             this.VatAmountLbl.AutoSize = true;
-            this.VatAmountLbl.Location = new System.Drawing.Point(436, 261);
+            this.VatAmountLbl.Location = new System.Drawing.Point(436, 183);
             this.VatAmountLbl.Name = "VatAmountLbl";
             this.VatAmountLbl.Size = new System.Drawing.Size(61, 13);
             this.VatAmountLbl.TabIndex = 6;
@@ -135,7 +131,7 @@
             this.ContractorAddress2TB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "contractor_address2", true));
             this.ContractorAddress2TB.Location = new System.Drawing.Point(238, 289);
             this.ContractorAddress2TB.Name = "ContractorAddress2TB";
-            this.ContractorAddress2TB.Size = new System.Drawing.Size(100, 20);
+            this.ContractorAddress2TB.Size = new System.Drawing.Size(180, 20);
             this.ContractorAddress2TB.TabIndex = 15;
             // 
             // ContractorAddress2Lbl
@@ -152,7 +148,7 @@
             this.ContractorAddress1TB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "contractor_address1", true));
             this.ContractorAddress1TB.Location = new System.Drawing.Point(238, 208);
             this.ContractorAddress1TB.Name = "ContractorAddress1TB";
-            this.ContractorAddress1TB.Size = new System.Drawing.Size(100, 20);
+            this.ContractorAddress1TB.Size = new System.Drawing.Size(180, 20);
             this.ContractorAddress1TB.TabIndex = 13;
             // 
             // ContractorAddress1Lbl
@@ -169,7 +165,7 @@
             this.ContractorNameTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "contractor_name", true));
             this.ContractorNameTB.Location = new System.Drawing.Point(238, 130);
             this.ContractorNameTB.Name = "ContractorNameTB";
-            this.ContractorNameTB.Size = new System.Drawing.Size(100, 20);
+            this.ContractorNameTB.Size = new System.Drawing.Size(180, 20);
             this.ContractorNameTB.TabIndex = 11;
             // 
             // ContractorNameLbl
@@ -186,7 +182,7 @@
             this.VatRateTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "vat_rate", true));
             this.VatRateTB.Location = new System.Drawing.Point(439, 52);
             this.VatRateTB.Name = "VatRateTB";
-            this.VatRateTB.Size = new System.Drawing.Size(100, 20);
+            this.VatRateTB.Size = new System.Drawing.Size(180, 20);
             this.VatRateTB.TabIndex = 9;
             // 
             // VatRateLbl
@@ -203,7 +199,7 @@
             this.DateOfSaleTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "date_of_sale", true));
             this.DateOfSaleTB.Location = new System.Drawing.Point(39, 208);
             this.DateOfSaleTB.Name = "DateOfSaleTB";
-            this.DateOfSaleTB.Size = new System.Drawing.Size(100, 20);
+            this.DateOfSaleTB.Size = new System.Drawing.Size(178, 20);
             this.DateOfSaleTB.TabIndex = 23;
             // 
             // DateOfSaleLbl
@@ -229,7 +225,7 @@
             this.ContractorNipTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "contractor_nip", true));
             this.ContractorNipTB.Location = new System.Drawing.Point(238, 52);
             this.ContractorNipTB.Name = "ContractorNipTB";
-            this.ContractorNipTB.Size = new System.Drawing.Size(100, 20);
+            this.ContractorNipTB.Size = new System.Drawing.Size(180, 20);
             this.ContractorNipTB.TabIndex = 17;
             // 
             // ContractorNipLbl
@@ -246,7 +242,7 @@
             this.DateOfIssueTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "date_of_issue", true));
             this.DateOfIssueTB.Location = new System.Drawing.Point(39, 130);
             this.DateOfIssueTB.Name = "DateOfIssueTB";
-            this.DateOfIssueTB.Size = new System.Drawing.Size(100, 20);
+            this.DateOfIssueTB.Size = new System.Drawing.Size(178, 20);
             this.DateOfIssueTB.TabIndex = 21;
             // 
             // IncomeCB
@@ -255,6 +251,7 @@
             this.IncomeCB.Checked = true;
             this.IncomeCB.CheckState = System.Windows.Forms.CheckState.Checked;
             this.IncomeCB.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindingSource, "income", true));
+            this.IncomeCB.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bindingSource, "income", true));
             this.IncomeCB.Location = new System.Drawing.Point(37, 286);
             this.IncomeCB.Name = "IncomeCB";
             this.IncomeCB.Size = new System.Drawing.Size(112, 17);
@@ -264,7 +261,7 @@
             // 
             // SaveBtn
             // 
-            this.SaveBtn.Location = new System.Drawing.Point(674, 49);
+            this.SaveBtn.Location = new System.Drawing.Point(674, 52);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(75, 23);
             this.SaveBtn.TabIndex = 25;
@@ -274,12 +271,17 @@
             // 
             // CancelBtn
             // 
-            this.CancelBtn.Location = new System.Drawing.Point(674, 127);
+            this.CancelBtn.Location = new System.Drawing.Point(674, 125);
             this.CancelBtn.Name = "CancelBtn";
             this.CancelBtn.Size = new System.Drawing.Size(75, 23);
             this.CancelBtn.TabIndex = 26;
             this.CancelBtn.Text = "Zaniechaj";
             this.CancelBtn.UseVisualStyleBackColor = true;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
+            // 
+            // bindingSource
+            // 
+            this.bindingSource.DataSource = typeof(JPK_generator.Model.invoice);
             // 
             // InvoiceEditForm
             // 

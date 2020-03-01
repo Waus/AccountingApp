@@ -27,6 +27,5 @@ namespace JPK_generator.Model
     
         public virtual DbSet<config> config { get; set; }
         public virtual DbSet<invoice> invoice { get; set; }
-        public virtual DbSet<test> test { get; set; }
     }
 }
