@@ -31,6 +31,12 @@ namespace JPK_generator.Controllers
             view.SetController();
         }
 
+        public void PrepareConfigTab(MainForm view)
+        {
+            var configData = FetchConfigData();
+            view.SetConfigDataSource(configData);
+        }
+
         public void RefreshView(MainForm view)
         {
             var list = FetchList();
@@ -53,6 +59,7 @@ namespace JPK_generator.Controllers
         public void AddEvents(MainForm view)
         {
             view.OnDelete += new Action<object, MainForm>(dlg_OnDelete);
+            view.OnSaveConfig += dlg_OnSaveConfig;
         }
 
         public void dlg_OnSave(object entity, InvoiceEditForm dlg)
@@ -87,9 +94,20 @@ namespace JPK_generator.Controllers
             }
         }
 
+        public void dlg_OnSaveConfig(object entity, MainForm view)
+        {
+            config config = entity as config;
+            Dao.SaveConfig(config);
+        }
+
         public IList<invoice> FetchList()
         {
             return Dao.GetInvoices();
+        }
+
+        public config FetchConfigData()
+        {
+            return Dao.GetConfigData();
         }
 
         //public invoice GetInvoiceForEdit()

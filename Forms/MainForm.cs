@@ -23,11 +23,22 @@ namespace JPK_generator
 
         public event Action<object, MainForm> OnDelete;
 
+        public delegate void SaveConfigEvent(object entity, MainForm dlg);
+
+        public event SaveConfigEvent OnSaveConfig;
+
 
 
         public void SetDataSource(object data)
         {
-            bindingSource.DataSource = data;
+            //todo pusta lista
+            if (data != null)
+                bindingSource.DataSource = data;
+        }
+
+        public void SetConfigDataSource(object data)
+        {
+                bindingSourceConfig.DataSource = data != null ? data : new config();
         }
 
         private MainFormController controller { get; set; }
@@ -57,8 +68,17 @@ namespace JPK_generator
 
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            if (OnDelete != null)
-                OnDelete(bindingSource.Current, this);
+            OnDelete?.Invoke(bindingSource.Current, this);
+        }
+
+        private void MainFormTabControl_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            controller?.PrepareConfigTab(this);
+        }
+
+        private void SaveConfigBtn_Click(object sender, EventArgs e)
+        {
+            OnSaveConfig?.Invoke(bindingSourceConfig.Current, this);
         }
     }
 }

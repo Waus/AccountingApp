@@ -45,6 +45,26 @@ namespace JPK_generator.Dao
             return context.invoice.Where(a => a.invoice_id == invoiceId).FirstOrDefault();
         }
 
-        
+        public config GetConfigData()
+        {
+            return context.config.FirstOrDefault();
+        }
+
+        public void SaveConfig(config newConfig)
+        {
+            try
+            {
+                var editedConfig = context.config.Where(a => a.config_id == newConfig.config_id).First();
+                newConfig.config_id = editedConfig.config_id;
+                context.Entry(editedConfig).CurrentValues.SetValues(newConfig);
+            }
+            catch
+            {
+                context.config.Add(newConfig);
+            }
+
+            context.SaveChanges();
+        }
+
     }
 }

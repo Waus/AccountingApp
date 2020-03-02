@@ -14,12 +14,13 @@ namespace JPK_generator.Model
     
     public partial class config
     {
+        public int config_id { get; set; }
         public string my_name { get; set; }
         public string my_address1 { get; set; }
         public string my_address2 { get; set; }
-        public int my_nip { get; set; }
+        public Nullable<int> my_nip { get; set; }
         public string my_email { get; set; }
         public string schema_version { get; set; }
-        public int form_variant { get; set; }
+        public string form_variant { get; set; }
     }
 }

@@ -30,6 +30,28 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.EditBtn = new System.Windows.Forms.Button();
+            this.AddNewBtn = new System.Windows.Forms.Button();
+            this.DeleteBtn = new System.Windows.Forms.Button();
+            this.MainFormTabControl = new System.Windows.Forms.TabControl();
+            this.InvoicesTab = new System.Windows.Forms.TabPage();
+            this.JpkTab = new System.Windows.Forms.TabPage();
+            this.ConfigTab = new System.Windows.Forms.TabPage();
+            this.SaveConfigBtn = new System.Windows.Forms.Button();
+            this.FormVariantLbl = new System.Windows.Forms.Label();
+            this.SchemaVersionLbl = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.MyEmailLbl = new System.Windows.Forms.Label();
+            this.MyEmailTB = new System.Windows.Forms.TextBox();
+            this.MyNipLbl = new System.Windows.Forms.Label();
+            this.MyNipTB = new System.Windows.Forms.TextBox();
+            this.MyAddress2Lbl = new System.Windows.Forms.Label();
+            this.MyAddress2TB = new System.Windows.Forms.TextBox();
+            this.MyAddress1Lbl = new System.Windows.Forms.Label();
+            this.MyAddress1TB = new System.Windows.Forms.TextBox();
+            this.MyNameLbl = new System.Windows.Forms.Label();
+            this.MyNameTB = new System.Windows.Forms.TextBox();
+            this.FormVariantTB = new System.Windows.Forms.TextBox();
             this.invoicenumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountnetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,11 +65,13 @@
             this.dateofissueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateofsaleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.EditBtn = new System.Windows.Forms.Button();
-            this.AddNewBtn = new System.Windows.Forms.Button();
-            this.DeleteBtn = new System.Windows.Forms.Button();
+            this.bindingSourceConfig = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.MainFormTabControl.SuspendLayout();
+            this.InvoicesTab.SuspendLayout();
+            this.ConfigTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceConfig)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -73,12 +97,233 @@
             this.dateofissueDataGridViewTextBoxColumn,
             this.dateofsaleDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.bindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 86);
+            this.dataGridView1.Location = new System.Drawing.Point(-145, 35);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(789, 337);
+            this.dataGridView1.Size = new System.Drawing.Size(1177, 337);
             this.dataGridView1.TabIndex = 4;
+            // 
+            // EditBtn
+            // 
+            this.EditBtn.Location = new System.Drawing.Point(87, 6);
+            this.EditBtn.Name = "EditBtn";
+            this.EditBtn.Size = new System.Drawing.Size(75, 23);
+            this.EditBtn.TabIndex = 5;
+            this.EditBtn.Text = "Edytuj";
+            this.EditBtn.UseVisualStyleBackColor = true;
+            this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
+            // 
+            // AddNewBtn
+            // 
+            this.AddNewBtn.Location = new System.Drawing.Point(6, 6);
+            this.AddNewBtn.Name = "AddNewBtn";
+            this.AddNewBtn.Size = new System.Drawing.Size(75, 23);
+            this.AddNewBtn.TabIndex = 6;
+            this.AddNewBtn.Text = "Dodaj nową";
+            this.AddNewBtn.UseVisualStyleBackColor = true;
+            this.AddNewBtn.Click += new System.EventHandler(this.AddNewBtn_Click);
+            // 
+            // DeleteBtn
+            // 
+            this.DeleteBtn.Location = new System.Drawing.Point(168, 6);
+            this.DeleteBtn.Name = "DeleteBtn";
+            this.DeleteBtn.Size = new System.Drawing.Size(75, 23);
+            this.DeleteBtn.TabIndex = 7;
+            this.DeleteBtn.Text = "Usuń";
+            this.DeleteBtn.UseVisualStyleBackColor = true;
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
+            // 
+            // MainFormTabControl
+            // 
+            this.MainFormTabControl.Controls.Add(this.InvoicesTab);
+            this.MainFormTabControl.Controls.Add(this.JpkTab);
+            this.MainFormTabControl.Controls.Add(this.ConfigTab);
+            this.MainFormTabControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MainFormTabControl.Location = new System.Drawing.Point(0, 0);
+            this.MainFormTabControl.Name = "MainFormTabControl";
+            this.MainFormTabControl.SelectedIndex = 0;
+            this.MainFormTabControl.Size = new System.Drawing.Size(789, 411);
+            this.MainFormTabControl.TabIndex = 8;
+            this.MainFormTabControl.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.MainFormTabControl_Selecting);
+            // 
+            // InvoicesTab
+            // 
+            this.InvoicesTab.Controls.Add(this.AddNewBtn);
+            this.InvoicesTab.Controls.Add(this.dataGridView1);
+            this.InvoicesTab.Controls.Add(this.DeleteBtn);
+            this.InvoicesTab.Controls.Add(this.EditBtn);
+            this.InvoicesTab.Location = new System.Drawing.Point(4, 22);
+            this.InvoicesTab.Name = "InvoicesTab";
+            this.InvoicesTab.Padding = new System.Windows.Forms.Padding(3);
+            this.InvoicesTab.Size = new System.Drawing.Size(781, 385);
+            this.InvoicesTab.TabIndex = 0;
+            this.InvoicesTab.Text = "Faktury";
+            this.InvoicesTab.UseVisualStyleBackColor = true;
+            // 
+            // JpkTab
+            // 
+            this.JpkTab.Location = new System.Drawing.Point(4, 22);
+            this.JpkTab.Name = "JpkTab";
+            this.JpkTab.Padding = new System.Windows.Forms.Padding(3);
+            this.JpkTab.Size = new System.Drawing.Size(781, 385);
+            this.JpkTab.TabIndex = 1;
+            this.JpkTab.Text = "JPK";
+            this.JpkTab.UseVisualStyleBackColor = true;
+            // 
+            // ConfigTab
+            // 
+            this.ConfigTab.Controls.Add(this.SaveConfigBtn);
+            this.ConfigTab.Controls.Add(this.FormVariantLbl);
+            this.ConfigTab.Controls.Add(this.FormVariantTB);
+            this.ConfigTab.Controls.Add(this.SchemaVersionLbl);
+            this.ConfigTab.Controls.Add(this.textBox5);
+            this.ConfigTab.Controls.Add(this.MyEmailLbl);
+            this.ConfigTab.Controls.Add(this.MyEmailTB);
+            this.ConfigTab.Controls.Add(this.MyNipLbl);
+            this.ConfigTab.Controls.Add(this.MyNipTB);
+            this.ConfigTab.Controls.Add(this.MyAddress2Lbl);
+            this.ConfigTab.Controls.Add(this.MyAddress2TB);
+            this.ConfigTab.Controls.Add(this.MyAddress1Lbl);
+            this.ConfigTab.Controls.Add(this.MyAddress1TB);
+            this.ConfigTab.Controls.Add(this.MyNameLbl);
+            this.ConfigTab.Controls.Add(this.MyNameTB);
+            this.ConfigTab.Location = new System.Drawing.Point(4, 22);
+            this.ConfigTab.Name = "ConfigTab";
+            this.ConfigTab.Padding = new System.Windows.Forms.Padding(3);
+            this.ConfigTab.Size = new System.Drawing.Size(781, 385);
+            this.ConfigTab.TabIndex = 2;
+            this.ConfigTab.Text = "Konfiguracja";
+            this.ConfigTab.UseVisualStyleBackColor = true;
+            // 
+            // SaveConfigBtn
+            // 
+            this.SaveConfigBtn.Location = new System.Drawing.Point(652, 42);
+            this.SaveConfigBtn.Name = "SaveConfigBtn";
+            this.SaveConfigBtn.Size = new System.Drawing.Size(75, 23);
+            this.SaveConfigBtn.TabIndex = 14;
+            this.SaveConfigBtn.Text = "Zapisz";
+            this.SaveConfigBtn.UseVisualStyleBackColor = true;
+            this.SaveConfigBtn.Click += new System.EventHandler(this.SaveConfigBtn_Click);
+            // 
+            // FormVariantLbl
+            // 
+            this.FormVariantLbl.AutoSize = true;
+            this.FormVariantLbl.Location = new System.Drawing.Point(304, 87);
+            this.FormVariantLbl.Name = "FormVariantLbl";
+            this.FormVariantLbl.Size = new System.Drawing.Size(95, 13);
+            this.FormVariantLbl.TabIndex = 13;
+            this.FormVariantLbl.Text = "Wariant formularza";
+            // 
+            // SchemaVersionLbl
+            // 
+            this.SchemaVersionLbl.AutoSize = true;
+            this.SchemaVersionLbl.Location = new System.Drawing.Point(304, 20);
+            this.SchemaVersionLbl.Name = "SchemaVersionLbl";
+            this.SchemaVersionLbl.Size = new System.Drawing.Size(79, 13);
+            this.SchemaVersionLbl.TabIndex = 11;
+            this.SchemaVersionLbl.Text = "Wersja schemy";
+            // 
+            // textBox5
+            // 
+            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceConfig, "schema_version", true));
+            this.textBox5.Location = new System.Drawing.Point(307, 46);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(197, 20);
+            this.textBox5.TabIndex = 10;
+            // 
+            // MyEmailLbl
+            // 
+            this.MyEmailLbl.AutoSize = true;
+            this.MyEmailLbl.Location = new System.Drawing.Point(25, 306);
+            this.MyEmailLbl.Name = "MyEmailLbl";
+            this.MyEmailLbl.Size = new System.Drawing.Size(51, 13);
+            this.MyEmailLbl.TabIndex = 9;
+            this.MyEmailLbl.Text = "Mój email";
+            // 
+            // MyEmailTB
+            // 
+            this.MyEmailTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceConfig, "my_email", true));
+            this.MyEmailTB.Location = new System.Drawing.Point(28, 332);
+            this.MyEmailTB.Name = "MyEmailTB";
+            this.MyEmailTB.Size = new System.Drawing.Size(197, 20);
+            this.MyEmailTB.TabIndex = 8;
+            // 
+            // MyNipLbl
+            // 
+            this.MyNipLbl.AutoSize = true;
+            this.MyNipLbl.Location = new System.Drawing.Point(25, 234);
+            this.MyNipLbl.Name = "MyNipLbl";
+            this.MyNipLbl.Size = new System.Drawing.Size(45, 13);
+            this.MyNipLbl.TabIndex = 7;
+            this.MyNipLbl.Text = "Mój NIP";
+            // 
+            // MyNipTB
+            // 
+            this.MyNipTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceConfig, "my_nip", true));
+            this.MyNipTB.Location = new System.Drawing.Point(28, 260);
+            this.MyNipTB.Name = "MyNipTB";
+            this.MyNipTB.Size = new System.Drawing.Size(197, 20);
+            this.MyNipTB.TabIndex = 6;
+            // 
+            // MyAddress2Lbl
+            // 
+            this.MyAddress2Lbl.AutoSize = true;
+            this.MyAddress2Lbl.Location = new System.Drawing.Point(25, 160);
+            this.MyAddress2Lbl.Name = "MyAddress2Lbl";
+            this.MyAddress2Lbl.Size = new System.Drawing.Size(62, 13);
+            this.MyAddress2Lbl.TabIndex = 5;
+            this.MyAddress2Lbl.Text = "Mój adres 2";
+            // 
+            // MyAddress2TB
+            // 
+            this.MyAddress2TB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceConfig, "my_address2", true));
+            this.MyAddress2TB.Location = new System.Drawing.Point(28, 186);
+            this.MyAddress2TB.Name = "MyAddress2TB";
+            this.MyAddress2TB.Size = new System.Drawing.Size(197, 20);
+            this.MyAddress2TB.TabIndex = 4;
+            // 
+            // MyAddress1Lbl
+            // 
+            this.MyAddress1Lbl.AutoSize = true;
+            this.MyAddress1Lbl.Location = new System.Drawing.Point(25, 87);
+            this.MyAddress1Lbl.Name = "MyAddress1Lbl";
+            this.MyAddress1Lbl.Size = new System.Drawing.Size(62, 13);
+            this.MyAddress1Lbl.TabIndex = 3;
+            this.MyAddress1Lbl.Text = "Mój adres 1";
+            // 
+            // MyAddress1TB
+            // 
+            this.MyAddress1TB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceConfig, "my_address1", true));
+            this.MyAddress1TB.Location = new System.Drawing.Point(28, 113);
+            this.MyAddress1TB.Name = "MyAddress1TB";
+            this.MyAddress1TB.Size = new System.Drawing.Size(197, 20);
+            this.MyAddress1TB.TabIndex = 2;
+            // 
+            // MyNameLbl
+            // 
+            this.MyNameLbl.AutoSize = true;
+            this.MyNameLbl.Location = new System.Drawing.Point(25, 20);
+            this.MyNameLbl.Name = "MyNameLbl";
+            this.MyNameLbl.Size = new System.Drawing.Size(64, 13);
+            this.MyNameLbl.TabIndex = 1;
+            this.MyNameLbl.Text = "Moja nazwa";
+            // 
+            // MyNameTB
+            // 
+            this.MyNameTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceConfig, "my_name", true));
+            this.MyNameTB.Location = new System.Drawing.Point(28, 46);
+            this.MyNameTB.Name = "MyNameTB";
+            this.MyNameTB.Size = new System.Drawing.Size(197, 20);
+            this.MyNameTB.TabIndex = 0;
+            // 
+            // FormVariantTB
+            // 
+            this.FormVariantTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceConfig, "form_variant", true));
+            this.FormVariantTB.Location = new System.Drawing.Point(307, 113);
+            this.FormVariantTB.Name = "FormVariantTB";
+            this.FormVariantTB.Size = new System.Drawing.Size(197, 20);
+            this.FormVariantTB.TabIndex = 12;
             // 
             // invoicenumberDataGridViewTextBoxColumn
             // 
@@ -168,35 +413,9 @@
             // 
             this.bindingSource.DataSource = typeof(JPK_generator.Model.invoice);
             // 
-            // EditBtn
+            // bindingSourceConfig
             // 
-            this.EditBtn.Location = new System.Drawing.Point(129, 21);
-            this.EditBtn.Name = "EditBtn";
-            this.EditBtn.Size = new System.Drawing.Size(75, 23);
-            this.EditBtn.TabIndex = 5;
-            this.EditBtn.Text = "Edytuj";
-            this.EditBtn.UseVisualStyleBackColor = true;
-            this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
-            // 
-            // AddNewBtn
-            // 
-            this.AddNewBtn.Location = new System.Drawing.Point(23, 21);
-            this.AddNewBtn.Name = "AddNewBtn";
-            this.AddNewBtn.Size = new System.Drawing.Size(75, 23);
-            this.AddNewBtn.TabIndex = 6;
-            this.AddNewBtn.Text = "Dodaj nową";
-            this.AddNewBtn.UseVisualStyleBackColor = true;
-            this.AddNewBtn.Click += new System.EventHandler(this.AddNewBtn_Click);
-            // 
-            // DeleteBtn
-            // 
-            this.DeleteBtn.Location = new System.Drawing.Point(235, 21);
-            this.DeleteBtn.Name = "DeleteBtn";
-            this.DeleteBtn.Size = new System.Drawing.Size(75, 23);
-            this.DeleteBtn.TabIndex = 7;
-            this.DeleteBtn.Text = "Usuń";
-            this.DeleteBtn.UseVisualStyleBackColor = true;
-            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
+            this.bindingSourceConfig.DataSource = typeof(JPK_generator.Model.config);
             // 
             // MainForm
             // 
@@ -204,14 +423,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(789, 435);
-            this.Controls.Add(this.DeleteBtn);
-            this.Controls.Add(this.AddNewBtn);
-            this.Controls.Add(this.EditBtn);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.MainFormTabControl);
             this.Name = "MainForm";
             this.Text = "Generator JPK";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.MainFormTabControl.ResumeLayout(false);
+            this.InvoicesTab.ResumeLayout(false);
+            this.ConfigTab.ResumeLayout(false);
+            this.ConfigTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceConfig)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -235,6 +456,26 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dateofsaleDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button AddNewBtn;
         private System.Windows.Forms.Button DeleteBtn;
+        private System.Windows.Forms.TabControl MainFormTabControl;
+        private System.Windows.Forms.TabPage InvoicesTab;
+        private System.Windows.Forms.TabPage JpkTab;
+        private System.Windows.Forms.TabPage ConfigTab;
+        private System.Windows.Forms.Label MyNameLbl;
+        private System.Windows.Forms.TextBox MyNameTB;
+        private System.Windows.Forms.BindingSource bindingSourceConfig;
+        private System.Windows.Forms.Label FormVariantLbl;
+        private System.Windows.Forms.Label SchemaVersionLbl;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label MyEmailLbl;
+        private System.Windows.Forms.TextBox MyEmailTB;
+        private System.Windows.Forms.Label MyNipLbl;
+        private System.Windows.Forms.TextBox MyNipTB;
+        private System.Windows.Forms.Label MyAddress2Lbl;
+        private System.Windows.Forms.TextBox MyAddress2TB;
+        private System.Windows.Forms.Label MyAddress1Lbl;
+        private System.Windows.Forms.TextBox MyAddress1TB;
+        private System.Windows.Forms.Button SaveConfigBtn;
+        private System.Windows.Forms.TextBox FormVariantTB;
     }
 }
 

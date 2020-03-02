@@ -112,6 +112,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\JPK_generator.Model.config.datasource" />
     <None Include="Properties\DataSources\JPK_generator.Model.invoice.datasource" />
     <None Include="Properties\DataSources\JPK_generator.Model.invoices.datasource" />
     <None Include="Properties\DataSources\JPK_generator.Model.test.datasource" />

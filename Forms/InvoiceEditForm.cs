@@ -31,9 +31,7 @@ namespace JPK_generator.Forms
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            //var a = bindingSource.Current;
-            if (OnSave != null)
-                OnSave(bindingSource.Current, this);
+            OnSave?.Invoke(bindingSource.Current, this);
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)

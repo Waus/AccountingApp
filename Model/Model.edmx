@@ -5,25 +5,18 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'db0.dbo.config' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="config">
           <Key>
-            <PropertyRef Name="my_name" />
-            <PropertyRef Name="my_address1" />
-            <PropertyRef Name="my_address2" />
-            <PropertyRef Name="my_nip" />
-            <PropertyRef Name="my_email" />
-            <PropertyRef Name="schema_version" />
-            <PropertyRef Name="form_variant" />
+            <PropertyRef Name="config_id" />
           </Key>
-          <Property Name="my_name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="my_address1" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="my_address2" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="my_nip" Type="int" Nullable="false" />
-          <Property Name="my_email" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="schema_version" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="form_variant" Type="int" Nullable="false" />
+          <Property Name="config_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="my_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="my_address1" Type="nvarchar" MaxLength="50" />
+          <Property Name="my_address2" Type="nvarchar" MaxLength="50" />
+          <Property Name="my_nip" Type="int" />
+          <Property Name="my_email" Type="nvarchar" MaxLength="50" />
+          <Property Name="schema_version" Type="nvarchar" MaxLength="50" />
+          <Property Name="form_variant" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="invoice">
           <Key>
@@ -44,44 +37,16 @@ warning 6002: The table/view 'db0.dbo.config' does not have a primary key define
           <Property Name="date_of_sale" Type="date" />
         </EntityType>
         <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="config" EntityType="Self.config" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="invoice" EntityType="Self.invoice" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="config" EntityType="Self.config" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [config].[my_name] AS [my_name], 
-    [config].[my_address1] AS [my_address1], 
-    [config].[my_address2] AS [my_address2], 
-    [config].[my_nip] AS [my_nip], 
-    [config].[my_email] AS [my_email], 
-    [config].[schema_version] AS [schema_version], 
-    [config].[form_variant] AS [form_variant]
-    FROM [dbo].[config] AS [config]</DefiningQuery>
-          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="config">
-          <Key>
-            <PropertyRef Name="my_name" />
-            <PropertyRef Name="my_address1" />
-            <PropertyRef Name="my_address2" />
-            <PropertyRef Name="my_nip" />
-            <PropertyRef Name="my_email" />
-            <PropertyRef Name="schema_version" />
-            <PropertyRef Name="form_variant" />
-          </Key>
-          <Property Name="my_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="my_address1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="my_address2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="my_nip" Type="Int32" Nullable="false" />
-          <Property Name="my_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="schema_version" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="form_variant" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityContainer Name="db0Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="config" EntityType="Self.config" />
           <EntitySet Name="invoice" EntityType="Model.invoice" />
+          <EntitySet Name="config" EntityType="Model.config" />
         </EntityContainer>
         <EntityType Name="invoice">
           <Key>
@@ -101,25 +66,25 @@ warning 6002: The table/view 'db0.dbo.config' does not have a primary key define
           <Property Name="date_of_issue" Type="DateTime" Precision="0" />
           <Property Name="date_of_sale" Type="DateTime" Precision="0" />
         </EntityType>
+        <EntityType Name="config">
+          <Key>
+            <PropertyRef Name="config_id" />
+          </Key>
+          <Property Name="config_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="my_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="my_address1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="my_address2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="my_nip" Type="Int32" />
+          <Property Name="my_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="schema_version" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="form_variant" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="db0Entities">
-          <EntitySetMapping Name="config">
-            <EntityTypeMapping TypeName="Model.config">
-              <MappingFragment StoreEntitySet="config">
-                <ScalarProperty Name="my_name" ColumnName="my_name" />
-                <ScalarProperty Name="my_address1" ColumnName="my_address1" />
-                <ScalarProperty Name="my_address2" ColumnName="my_address2" />
-                <ScalarProperty Name="my_nip" ColumnName="my_nip" />
-                <ScalarProperty Name="my_email" ColumnName="my_email" />
-                <ScalarProperty Name="schema_version" ColumnName="schema_version" />
-                <ScalarProperty Name="form_variant" ColumnName="form_variant" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="invoice">
             <EntityTypeMapping TypeName="Model.invoice">
               <MappingFragment StoreEntitySet="invoice">
@@ -136,6 +101,20 @@ warning 6002: The table/view 'db0.dbo.config' does not have a primary key define
                 <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="invoice_number" ColumnName="invoice_number" />
                 <ScalarProperty Name="invoice_id" ColumnName="invoice_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="config">
+            <EntityTypeMapping TypeName="Model.config">
+              <MappingFragment StoreEntitySet="config">
+                <ScalarProperty Name="form_variant" ColumnName="form_variant" />
+                <ScalarProperty Name="schema_version" ColumnName="schema_version" />
+                <ScalarProperty Name="my_email" ColumnName="my_email" />
+                <ScalarProperty Name="my_nip" ColumnName="my_nip" />
+                <ScalarProperty Name="my_address2" ColumnName="my_address2" />
+                <ScalarProperty Name="my_address1" ColumnName="my_address1" />
+                <ScalarProperty Name="my_name" ColumnName="my_name" />
+                <ScalarProperty Name="config_id" ColumnName="config_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
