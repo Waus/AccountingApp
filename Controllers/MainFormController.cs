@@ -71,7 +71,6 @@ namespace JPK_generator.Controllers
                 RefreshView(View);
             }
             else Dao.Save(invoice);
-            dlg.Close();
         }
 
         public void dlg_OnDelete(object entity, MainForm view)

@@ -31,16 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.InvoiceNumberLbl = new System.Windows.Forms.Label();
             this.InvoiceNumberTB = new System.Windows.Forms.TextBox();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DescriptionTB = new System.Windows.Forms.TextBox();
             this.DescriptionLbl = new System.Windows.Forms.Label();
             this.NetAmountTB = new System.Windows.Forms.TextBox();
             this.NetAmountLbl = new System.Windows.Forms.Label();
             this.VatAmountTB = new System.Windows.Forms.TextBox();
             this.VatAmountLbl = new System.Windows.Forms.Label();
-            this.ContractorAddress2TB = new System.Windows.Forms.TextBox();
-            this.ContractorAddress2Lbl = new System.Windows.Forms.Label();
-            this.ContractorAddress1TB = new System.Windows.Forms.TextBox();
-            this.ContractorAddress1Lbl = new System.Windows.Forms.Label();
+            this.ContractorAddressTB = new System.Windows.Forms.TextBox();
+            this.ContractorAddressLbl = new System.Windows.Forms.Label();
             this.ContractorNameTB = new System.Windows.Forms.TextBox();
             this.ContractorNameLbl = new System.Windows.Forms.Label();
             this.VatRateTB = new System.Windows.Forms.TextBox();
@@ -54,7 +53,6 @@
             this.IncomeCB = new System.Windows.Forms.CheckBox();
             this.SaveBtn = new System.Windows.Forms.Button();
             this.CancelBtn = new System.Windows.Forms.Button();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,6 +72,10 @@
             this.InvoiceNumberTB.Name = "InvoiceNumberTB";
             this.InvoiceNumberTB.Size = new System.Drawing.Size(180, 20);
             this.InvoiceNumberTB.TabIndex = 1;
+            // 
+            // bindingSource
+            // 
+            this.bindingSource.DataSource = typeof(JPK_generator.Model.invoice);
             // 
             // DescriptionTB
             // 
@@ -126,39 +128,22 @@
             this.VatAmountLbl.TabIndex = 6;
             this.VatAmountLbl.Text = "Kwota VAT";
             // 
-            // ContractorAddress2TB
+            // ContractorAddressTB
             // 
-            this.ContractorAddress2TB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "contractor_address2", true));
-            this.ContractorAddress2TB.Location = new System.Drawing.Point(238, 289);
-            this.ContractorAddress2TB.Name = "ContractorAddress2TB";
-            this.ContractorAddress2TB.Size = new System.Drawing.Size(180, 20);
-            this.ContractorAddress2TB.TabIndex = 15;
+            this.ContractorAddressTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "contractor_address", true));
+            this.ContractorAddressTB.Location = new System.Drawing.Point(238, 208);
+            this.ContractorAddressTB.Name = "ContractorAddressTB";
+            this.ContractorAddressTB.Size = new System.Drawing.Size(180, 20);
+            this.ContractorAddressTB.TabIndex = 13;
             // 
-            // ContractorAddress2Lbl
+            // ContractorAddressLbl
             // 
-            this.ContractorAddress2Lbl.AutoSize = true;
-            this.ContractorAddress2Lbl.Location = new System.Drawing.Point(235, 264);
-            this.ContractorAddress2Lbl.Name = "ContractorAddress2Lbl";
-            this.ContractorAddress2Lbl.Size = new System.Drawing.Size(103, 13);
-            this.ContractorAddress2Lbl.TabIndex = 14;
-            this.ContractorAddress2Lbl.Text = "Adres kontrahenta 2";
-            // 
-            // ContractorAddress1TB
-            // 
-            this.ContractorAddress1TB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "contractor_address1", true));
-            this.ContractorAddress1TB.Location = new System.Drawing.Point(238, 208);
-            this.ContractorAddress1TB.Name = "ContractorAddress1TB";
-            this.ContractorAddress1TB.Size = new System.Drawing.Size(180, 20);
-            this.ContractorAddress1TB.TabIndex = 13;
-            // 
-            // ContractorAddress1Lbl
-            // 
-            this.ContractorAddress1Lbl.AutoSize = true;
-            this.ContractorAddress1Lbl.Location = new System.Drawing.Point(235, 183);
-            this.ContractorAddress1Lbl.Name = "ContractorAddress1Lbl";
-            this.ContractorAddress1Lbl.Size = new System.Drawing.Size(103, 13);
-            this.ContractorAddress1Lbl.TabIndex = 12;
-            this.ContractorAddress1Lbl.Text = "Adres kontrahenta 1";
+            this.ContractorAddressLbl.AutoSize = true;
+            this.ContractorAddressLbl.Location = new System.Drawing.Point(235, 183);
+            this.ContractorAddressLbl.Name = "ContractorAddressLbl";
+            this.ContractorAddressLbl.Size = new System.Drawing.Size(94, 13);
+            this.ContractorAddressLbl.TabIndex = 12;
+            this.ContractorAddressLbl.Text = "Adres kontrahenta";
             // 
             // ContractorNameTB
             // 
@@ -279,10 +264,6 @@
             this.CancelBtn.UseVisualStyleBackColor = true;
             this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
-            // bindingSource
-            // 
-            this.bindingSource.DataSource = typeof(JPK_generator.Model.invoice);
-            // 
             // InvoiceEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,10 +278,8 @@
             this.Controls.Add(this.DateOfIssueLbl);
             this.Controls.Add(this.ContractorNipTB);
             this.Controls.Add(this.ContractorNipLbl);
-            this.Controls.Add(this.ContractorAddress2TB);
-            this.Controls.Add(this.ContractorAddress2Lbl);
-            this.Controls.Add(this.ContractorAddress1TB);
-            this.Controls.Add(this.ContractorAddress1Lbl);
+            this.Controls.Add(this.ContractorAddressTB);
+            this.Controls.Add(this.ContractorAddressLbl);
             this.Controls.Add(this.ContractorNameTB);
             this.Controls.Add(this.ContractorNameLbl);
             this.Controls.Add(this.VatRateTB);
@@ -333,10 +312,8 @@
         private System.Windows.Forms.Label NetAmountLbl;
         private System.Windows.Forms.TextBox VatAmountTB;
         private System.Windows.Forms.Label VatAmountLbl;
-        private System.Windows.Forms.TextBox ContractorAddress2TB;
-        private System.Windows.Forms.Label ContractorAddress2Lbl;
-        private System.Windows.Forms.TextBox ContractorAddress1TB;
-        private System.Windows.Forms.Label ContractorAddress1Lbl;
+        private System.Windows.Forms.TextBox ContractorAddressTB;
+        private System.Windows.Forms.Label ContractorAddressLbl;
         private System.Windows.Forms.TextBox ContractorNameTB;
         private System.Windows.Forms.Label ContractorNameLbl;
         private System.Windows.Forms.TextBox VatRateTB;

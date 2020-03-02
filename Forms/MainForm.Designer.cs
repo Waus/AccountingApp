@@ -45,10 +45,8 @@
             this.MyEmailTB = new System.Windows.Forms.TextBox();
             this.MyNipLbl = new System.Windows.Forms.Label();
             this.MyNipTB = new System.Windows.Forms.TextBox();
-            this.MyAddress2Lbl = new System.Windows.Forms.Label();
-            this.MyAddress2TB = new System.Windows.Forms.TextBox();
-            this.MyAddress1Lbl = new System.Windows.Forms.Label();
-            this.MyAddress1TB = new System.Windows.Forms.TextBox();
+            this.MyAddressLbl = new System.Windows.Forms.Label();
+            this.MyAddressTB = new System.Windows.Forms.TextBox();
             this.MyNameLbl = new System.Windows.Forms.Label();
             this.MyNameTB = new System.Windows.Forms.TextBox();
             this.FormVariantTB = new System.Windows.Forms.TextBox();
@@ -58,8 +56,6 @@
             this.amountvatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vatrateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contractornameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contractoraddress1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contractoraddress2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contractornipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.incomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateofissueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,8 +86,6 @@
             this.amountvatDataGridViewTextBoxColumn,
             this.vatrateDataGridViewTextBoxColumn,
             this.contractornameDataGridViewTextBoxColumn,
-            this.contractoraddress1DataGridViewTextBoxColumn,
-            this.contractoraddress2DataGridViewTextBoxColumn,
             this.contractornipDataGridViewTextBoxColumn,
             this.incomeDataGridViewTextBoxColumn,
             this.dateofissueDataGridViewTextBoxColumn,
@@ -182,10 +176,8 @@
             this.ConfigTab.Controls.Add(this.MyEmailTB);
             this.ConfigTab.Controls.Add(this.MyNipLbl);
             this.ConfigTab.Controls.Add(this.MyNipTB);
-            this.ConfigTab.Controls.Add(this.MyAddress2Lbl);
-            this.ConfigTab.Controls.Add(this.MyAddress2TB);
-            this.ConfigTab.Controls.Add(this.MyAddress1Lbl);
-            this.ConfigTab.Controls.Add(this.MyAddress1TB);
+            this.ConfigTab.Controls.Add(this.MyAddressLbl);
+            this.ConfigTab.Controls.Add(this.MyAddressTB);
             this.ConfigTab.Controls.Add(this.MyNameLbl);
             this.ConfigTab.Controls.Add(this.MyNameTB);
             this.ConfigTab.Location = new System.Drawing.Point(4, 22);
@@ -235,7 +227,7 @@
             // MyEmailLbl
             // 
             this.MyEmailLbl.AutoSize = true;
-            this.MyEmailLbl.Location = new System.Drawing.Point(25, 306);
+            this.MyEmailLbl.Location = new System.Drawing.Point(25, 229);
             this.MyEmailLbl.Name = "MyEmailLbl";
             this.MyEmailLbl.Size = new System.Drawing.Size(51, 13);
             this.MyEmailLbl.TabIndex = 9;
@@ -244,7 +236,7 @@
             // MyEmailTB
             // 
             this.MyEmailTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceConfig, "my_email", true));
-            this.MyEmailTB.Location = new System.Drawing.Point(28, 332);
+            this.MyEmailTB.Location = new System.Drawing.Point(28, 255);
             this.MyEmailTB.Name = "MyEmailTB";
             this.MyEmailTB.Size = new System.Drawing.Size(197, 20);
             this.MyEmailTB.TabIndex = 8;
@@ -252,7 +244,7 @@
             // MyNipLbl
             // 
             this.MyNipLbl.AutoSize = true;
-            this.MyNipLbl.Location = new System.Drawing.Point(25, 234);
+            this.MyNipLbl.Location = new System.Drawing.Point(25, 157);
             this.MyNipLbl.Name = "MyNipLbl";
             this.MyNipLbl.Size = new System.Drawing.Size(45, 13);
             this.MyNipLbl.TabIndex = 7;
@@ -261,44 +253,27 @@
             // MyNipTB
             // 
             this.MyNipTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceConfig, "my_nip", true));
-            this.MyNipTB.Location = new System.Drawing.Point(28, 260);
+            this.MyNipTB.Location = new System.Drawing.Point(28, 183);
             this.MyNipTB.Name = "MyNipTB";
             this.MyNipTB.Size = new System.Drawing.Size(197, 20);
             this.MyNipTB.TabIndex = 6;
             // 
-            // MyAddress2Lbl
+            // MyAddressLbl
             // 
-            this.MyAddress2Lbl.AutoSize = true;
-            this.MyAddress2Lbl.Location = new System.Drawing.Point(25, 160);
-            this.MyAddress2Lbl.Name = "MyAddress2Lbl";
-            this.MyAddress2Lbl.Size = new System.Drawing.Size(62, 13);
-            this.MyAddress2Lbl.TabIndex = 5;
-            this.MyAddress2Lbl.Text = "Mój adres 2";
+            this.MyAddressLbl.AutoSize = true;
+            this.MyAddressLbl.Location = new System.Drawing.Point(25, 87);
+            this.MyAddressLbl.Name = "MyAddressLbl";
+            this.MyAddressLbl.Size = new System.Drawing.Size(53, 13);
+            this.MyAddressLbl.TabIndex = 3;
+            this.MyAddressLbl.Text = "Mój adres";
             // 
-            // MyAddress2TB
+            // MyAddressTB
             // 
-            this.MyAddress2TB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceConfig, "my_address2", true));
-            this.MyAddress2TB.Location = new System.Drawing.Point(28, 186);
-            this.MyAddress2TB.Name = "MyAddress2TB";
-            this.MyAddress2TB.Size = new System.Drawing.Size(197, 20);
-            this.MyAddress2TB.TabIndex = 4;
-            // 
-            // MyAddress1Lbl
-            // 
-            this.MyAddress1Lbl.AutoSize = true;
-            this.MyAddress1Lbl.Location = new System.Drawing.Point(25, 87);
-            this.MyAddress1Lbl.Name = "MyAddress1Lbl";
-            this.MyAddress1Lbl.Size = new System.Drawing.Size(62, 13);
-            this.MyAddress1Lbl.TabIndex = 3;
-            this.MyAddress1Lbl.Text = "Mój adres 1";
-            // 
-            // MyAddress1TB
-            // 
-            this.MyAddress1TB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceConfig, "my_address1", true));
-            this.MyAddress1TB.Location = new System.Drawing.Point(28, 113);
-            this.MyAddress1TB.Name = "MyAddress1TB";
-            this.MyAddress1TB.Size = new System.Drawing.Size(197, 20);
-            this.MyAddress1TB.TabIndex = 2;
+            this.MyAddressTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceConfig, "my_address", true));
+            this.MyAddressTB.Location = new System.Drawing.Point(28, 113);
+            this.MyAddressTB.Name = "MyAddressTB";
+            this.MyAddressTB.Size = new System.Drawing.Size(197, 20);
+            this.MyAddressTB.TabIndex = 2;
             // 
             // MyNameLbl
             // 
@@ -367,20 +342,6 @@
             this.contractornameDataGridViewTextBoxColumn.Name = "contractornameDataGridViewTextBoxColumn";
             this.contractornameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // contractoraddress1DataGridViewTextBoxColumn
-            // 
-            this.contractoraddress1DataGridViewTextBoxColumn.DataPropertyName = "contractor_address1";
-            this.contractoraddress1DataGridViewTextBoxColumn.HeaderText = "Adres kontrahenta 1";
-            this.contractoraddress1DataGridViewTextBoxColumn.Name = "contractoraddress1DataGridViewTextBoxColumn";
-            this.contractoraddress1DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // contractoraddress2DataGridViewTextBoxColumn
-            // 
-            this.contractoraddress2DataGridViewTextBoxColumn.DataPropertyName = "contractor_address2";
-            this.contractoraddress2DataGridViewTextBoxColumn.HeaderText = "Adres kontrahenta 2";
-            this.contractoraddress2DataGridViewTextBoxColumn.Name = "contractoraddress2DataGridViewTextBoxColumn";
-            this.contractoraddress2DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // contractornipDataGridViewTextBoxColumn
             // 
             this.contractornipDataGridViewTextBoxColumn.DataPropertyName = "contractor_nip";
@@ -448,8 +409,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn amountvatDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vatrateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contractornameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contractoraddress1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contractoraddress2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contractornipDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn incomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateofissueDataGridViewTextBoxColumn;
@@ -470,10 +429,8 @@
         private System.Windows.Forms.TextBox MyEmailTB;
         private System.Windows.Forms.Label MyNipLbl;
         private System.Windows.Forms.TextBox MyNipTB;
-        private System.Windows.Forms.Label MyAddress2Lbl;
-        private System.Windows.Forms.TextBox MyAddress2TB;
-        private System.Windows.Forms.Label MyAddress1Lbl;
-        private System.Windows.Forms.TextBox MyAddress1TB;
+        private System.Windows.Forms.Label MyAddressLbl;
+        private System.Windows.Forms.TextBox MyAddressTB;
         private System.Windows.Forms.Button SaveConfigBtn;
         private System.Windows.Forms.TextBox FormVariantTB;
     }

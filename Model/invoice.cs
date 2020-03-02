@@ -21,9 +21,8 @@ namespace JPK_generator.Model
         public Nullable<decimal> amount_vat { get; set; }
         public Nullable<decimal> vat_rate { get; set; }
         public string contractor_name { get; set; }
-        public string contractor_address1 { get; set; }
-        public string contractor_address2 { get; set; }
-        public Nullable<int> contractor_nip { get; set; }
+        public string contractor_address { get; set; }
+        public string contractor_nip { get; set; }
         public Nullable<bool> income { get; set; }
         public Nullable<System.DateTime> date_of_issue { get; set; }
         public Nullable<System.DateTime> date_of_sale { get; set; }
