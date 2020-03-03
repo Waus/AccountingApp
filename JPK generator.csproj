@@ -70,27 +70,27 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AppStart\Program.cs" />
-    <Compile Include="Model\config.cs">
+    <Compile Include="Model\config.generated.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\invoice.cs">
+    <Compile Include="Model\invoice.generated.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\invoice2.cs" />
-    <Compile Include="Model\Model.Context.cs">
+    <Compile Include="Model\invoice.cs" />
+    <Compile Include="Model\Model.Context.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
       <DependentUpon>Model.Context.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="Model\Model.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Model\Model.Designer.cs">
       <DependentUpon>Model.edmx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Model\Model.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\InvoiceEditForm.resx">
@@ -142,12 +142,12 @@
     <Content Include="Model\Model.Context.tt">
       <DependentUpon>Model.edmx</DependentUpon>
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
+      <LastGenOutput>Model.Context.generated.cs</LastGenOutput>
     </Content>
     <Content Include="Model\Model.tt">
       <DependentUpon>Model.edmx</DependentUpon>
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.cs</LastGenOutput>
+      <LastGenOutput>Model.generated.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup />

@@ -39,6 +39,7 @@
             this.ConfigTab = new System.Windows.Forms.TabPage();
             this.SaveConfigBtn = new System.Windows.Forms.Button();
             this.FormVariantLbl = new System.Windows.Forms.Label();
+            this.FormVariantTB = new System.Windows.Forms.TextBox();
             this.SchemaVersionLbl = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.MyEmailLbl = new System.Windows.Forms.Label();
@@ -49,7 +50,6 @@
             this.MyAddressTB = new System.Windows.Forms.TextBox();
             this.MyNameLbl = new System.Windows.Forms.Label();
             this.MyNameTB = new System.Windows.Forms.TextBox();
-            this.FormVariantTB = new System.Windows.Forms.TextBox();
             this.invoicenumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountnetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -207,6 +207,14 @@
             this.FormVariantLbl.TabIndex = 13;
             this.FormVariantLbl.Text = "Wariant formularza";
             // 
+            // FormVariantTB
+            // 
+            this.FormVariantTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceConfig, "form_variant", true));
+            this.FormVariantTB.Location = new System.Drawing.Point(307, 113);
+            this.FormVariantTB.Name = "FormVariantTB";
+            this.FormVariantTB.Size = new System.Drawing.Size(197, 20);
+            this.FormVariantTB.TabIndex = 12;
+            // 
             // SchemaVersionLbl
             // 
             this.SchemaVersionLbl.AutoSize = true;
@@ -291,14 +299,6 @@
             this.MyNameTB.Name = "MyNameTB";
             this.MyNameTB.Size = new System.Drawing.Size(197, 20);
             this.MyNameTB.TabIndex = 0;
-            // 
-            // FormVariantTB
-            // 
-            this.FormVariantTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceConfig, "form_variant", true));
-            this.FormVariantTB.Location = new System.Drawing.Point(307, 113);
-            this.FormVariantTB.Name = "FormVariantTB";
-            this.FormVariantTB.Size = new System.Drawing.Size(197, 20);
-            this.FormVariantTB.TabIndex = 12;
             // 
             // invoicenumberDataGridViewTextBoxColumn
             // 
@@ -386,6 +386,7 @@
             this.ClientSize = new System.Drawing.Size(789, 435);
             this.Controls.Add(this.MainFormTabControl);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Generator JPK";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.MainFormTabControl.ResumeLayout(false);

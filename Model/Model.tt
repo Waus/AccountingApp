@@ -1,6 +1,6 @@
 ﻿<#@ template language="C#" debug="false" hostspecific="true"#>
 <#@ include file="EF6.Utility.CS.ttinclude"#><#@ 
- output extension=".cs"#><#
+ output extension=".generated.cs"#><#
 
 const string inputFile = @"Model.edmx";
 var textTransform = DynamicTextTransformation.Create(this);
@@ -20,7 +20,7 @@ WriteHeader(codeStringGenerator, fileManager);
 
 foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection))
 {
-    fileManager.StartNewFile(entity.Name + ".cs");
+    fileManager.StartNewFile(entity.Name + ".generated.cs");
     BeginNamespace(code);
 #>
 <#=codeStringGenerator.UsingDirectives(inHeader: false)#>

@@ -293,7 +293,7 @@
             this.Controls.Add(this.InvoiceNumberTB);
             this.Controls.Add(this.InvoiceNumberLbl);
             this.Name = "InvoiceEditForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dane faktury";
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
