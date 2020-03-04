@@ -65,6 +65,10 @@ namespace JPK_generator.Dao
 
             context.SaveChanges();
         }
-
+        
+        public IList<invoice> GetInvoicesListForJpk(DateTime dateFrom, DateTime dateTo)
+        {
+            return context.invoice.Where(a => a.date_of_sale > dateFrom && a.date_of_sale < dateTo).ToList();
+        }
     }
 }

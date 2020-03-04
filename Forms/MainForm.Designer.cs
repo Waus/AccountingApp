@@ -50,6 +50,13 @@
             this.MyAddressTB = new System.Windows.Forms.TextBox();
             this.MyNameLbl = new System.Windows.Forms.Label();
             this.MyNameTB = new System.Windows.Forms.TextBox();
+            this.PathForJpkLbl = new System.Windows.Forms.Label();
+            this.PathForJpkTB = new System.Windows.Forms.TextBox();
+            this.DateFromLbl = new System.Windows.Forms.Label();
+            this.DateFromTB = new System.Windows.Forms.TextBox();
+            this.DateToLbl = new System.Windows.Forms.Label();
+            this.DateToTB = new System.Windows.Forms.TextBox();
+            this.GenerateJpkBtn = new System.Windows.Forms.Button();
             this.invoicenumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountnetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +72,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.MainFormTabControl.SuspendLayout();
             this.InvoicesTab.SuspendLayout();
+            this.JpkTab.SuspendLayout();
             this.ConfigTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceConfig)).BeginInit();
@@ -157,6 +165,11 @@
             // 
             // JpkTab
             // 
+            this.JpkTab.Controls.Add(this.GenerateJpkBtn);
+            this.JpkTab.Controls.Add(this.DateToLbl);
+            this.JpkTab.Controls.Add(this.DateToTB);
+            this.JpkTab.Controls.Add(this.DateFromLbl);
+            this.JpkTab.Controls.Add(this.DateFromTB);
             this.JpkTab.Location = new System.Drawing.Point(4, 22);
             this.JpkTab.Name = "JpkTab";
             this.JpkTab.Padding = new System.Windows.Forms.Padding(3);
@@ -167,6 +180,8 @@
             // 
             // ConfigTab
             // 
+            this.ConfigTab.Controls.Add(this.PathForJpkLbl);
+            this.ConfigTab.Controls.Add(this.PathForJpkTB);
             this.ConfigTab.Controls.Add(this.SaveConfigBtn);
             this.ConfigTab.Controls.Add(this.FormVariantLbl);
             this.ConfigTab.Controls.Add(this.FormVariantTB);
@@ -300,6 +315,65 @@
             this.MyNameTB.Size = new System.Drawing.Size(197, 20);
             this.MyNameTB.TabIndex = 0;
             // 
+            // PathForJpkLbl
+            // 
+            this.PathForJpkLbl.AutoSize = true;
+            this.PathForJpkLbl.Location = new System.Drawing.Point(25, 301);
+            this.PathForJpkLbl.Name = "PathForJpkLbl";
+            this.PathForJpkLbl.Size = new System.Drawing.Size(179, 13);
+            this.PathForJpkLbl.TabIndex = 16;
+            this.PathForJpkLbl.Text = "Ścieżka do generowania plików JPK";
+            // 
+            // PathForJpkTB
+            // 
+            this.PathForJpkTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceConfig, "path_for_jpk", true));
+            this.PathForJpkTB.Location = new System.Drawing.Point(28, 327);
+            this.PathForJpkTB.Name = "PathForJpkTB";
+            this.PathForJpkTB.Size = new System.Drawing.Size(699, 20);
+            this.PathForJpkTB.TabIndex = 15;
+            // 
+            // DateFromLbl
+            // 
+            this.DateFromLbl.AutoSize = true;
+            this.DateFromLbl.Location = new System.Drawing.Point(26, 28);
+            this.DateFromLbl.Name = "DateFromLbl";
+            this.DateFromLbl.Size = new System.Drawing.Size(45, 13);
+            this.DateFromLbl.TabIndex = 3;
+            this.DateFromLbl.Text = "Data od";
+            // 
+            // DateFromTB
+            // 
+            this.DateFromTB.Location = new System.Drawing.Point(29, 54);
+            this.DateFromTB.Name = "DateFromTB";
+            this.DateFromTB.Size = new System.Drawing.Size(197, 20);
+            this.DateFromTB.TabIndex = 2;
+            // 
+            // DateToLbl
+            // 
+            this.DateToLbl.AutoSize = true;
+            this.DateToLbl.Location = new System.Drawing.Point(257, 28);
+            this.DateToLbl.Name = "DateToLbl";
+            this.DateToLbl.Size = new System.Drawing.Size(45, 13);
+            this.DateToLbl.TabIndex = 5;
+            this.DateToLbl.Text = "Data do";
+            // 
+            // DateToTB
+            // 
+            this.DateToTB.Location = new System.Drawing.Point(260, 54);
+            this.DateToTB.Name = "DateToTB";
+            this.DateToTB.Size = new System.Drawing.Size(197, 20);
+            this.DateToTB.TabIndex = 4;
+            // 
+            // GenerateJpkBtn
+            // 
+            this.GenerateJpkBtn.Location = new System.Drawing.Point(660, 51);
+            this.GenerateJpkBtn.Name = "GenerateJpkBtn";
+            this.GenerateJpkBtn.Size = new System.Drawing.Size(75, 23);
+            this.GenerateJpkBtn.TabIndex = 6;
+            this.GenerateJpkBtn.Text = "Generuj JPK";
+            this.GenerateJpkBtn.UseVisualStyleBackColor = true;
+            this.GenerateJpkBtn.Click += new System.EventHandler(this.GenerateJpkBtn_Click);
+            // 
             // invoicenumberDataGridViewTextBoxColumn
             // 
             this.invoicenumberDataGridViewTextBoxColumn.DataPropertyName = "invoice_number";
@@ -391,6 +465,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.MainFormTabControl.ResumeLayout(false);
             this.InvoicesTab.ResumeLayout(false);
+            this.JpkTab.ResumeLayout(false);
+            this.JpkTab.PerformLayout();
             this.ConfigTab.ResumeLayout(false);
             this.ConfigTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
@@ -434,6 +510,13 @@
         private System.Windows.Forms.TextBox MyAddressTB;
         private System.Windows.Forms.Button SaveConfigBtn;
         private System.Windows.Forms.TextBox FormVariantTB;
+        private System.Windows.Forms.Label PathForJpkLbl;
+        private System.Windows.Forms.TextBox PathForJpkTB;
+        private System.Windows.Forms.Button GenerateJpkBtn;
+        private System.Windows.Forms.Label DateToLbl;
+        private System.Windows.Forms.TextBox DateToTB;
+        private System.Windows.Forms.Label DateFromLbl;
+        private System.Windows.Forms.TextBox DateFromTB;
     }
 }
 

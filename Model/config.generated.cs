@@ -21,5 +21,6 @@ namespace JPK_generator.Model
         public string my_email { get; set; }
         public string schema_version { get; set; }
         public string form_variant { get; set; }
+        public string path_for_jpk { get; set; }
     }
 }

@@ -16,6 +16,7 @@
           <Property Name="my_email" Type="nvarchar" MaxLength="50" />
           <Property Name="schema_version" Type="nvarchar" MaxLength="50" />
           <Property Name="form_variant" Type="nvarchar" MaxLength="10" />
+          <Property Name="path_for_jpk" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="invoice">
           <Key>
@@ -57,6 +58,7 @@
           <Property Name="my_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="schema_version" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="form_variant" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="path_for_jpk" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="invoice">
           <Key>
@@ -84,6 +86,7 @@
           <EntitySetMapping Name="config">
             <EntityTypeMapping TypeName="Model.config">
               <MappingFragment StoreEntitySet="config">
+                <ScalarProperty Name="path_for_jpk" ColumnName="path_for_jpk" />
                 <ScalarProperty Name="form_variant" ColumnName="form_variant" />
                 <ScalarProperty Name="schema_version" ColumnName="schema_version" />
                 <ScalarProperty Name="my_email" ColumnName="my_email" />

@@ -1,6 +1,7 @@
 ﻿using JPK_generator.Dao;
 using JPK_generator.Forms;
 using JPK_generator.Model;
+using JPK_generator.XSD;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,6 +61,7 @@ namespace JPK_generator.Controllers
         {
             view.OnDelete += new Action<object, MainForm>(dlg_OnDelete);
             view.OnSaveConfig += dlg_OnSaveConfig;
+            view.OnGenerateJpk += dlg_OnGenerateJpk;
         }
 
         public void dlg_OnSave(object entity, InvoiceEditForm dlg)
@@ -99,6 +101,17 @@ namespace JPK_generator.Controllers
             Dao.SaveConfig(config);
         }
 
+        public void dlg_OnGenerateJpk(DateTime dateFrom, DateTime dateTo, MainForm view)
+        {
+            if (dateFrom > dateTo)
+                MessageBox.Show("Data do nie może być późniejsza niż data do", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            JpkGenerator generator = new JpkGenerator();
+            IList<invoice> invoices = GetInvoicesListForJpk(dateFrom, dateTo);
+            generator.GenerateJpk(invoices, dateFrom, dateTo);
+
+                
+        }
+
         public IList<invoice> FetchList()
         {
             return Dao.GetInvoices();
@@ -109,10 +122,11 @@ namespace JPK_generator.Controllers
             return Dao.GetConfigData();
         }
 
-        //public invoice GetInvoiceForEdit()
-        //{
-        //    return Dao.GetInvoice();
-        //}
+        public IList<invoice> GetInvoicesListForJpk(DateTime dateFrom, DateTime dateTo)
+        {
+            return Dao.GetInvoicesListForJpk(dateFrom, dateTo);
+        }
+
 
 
 

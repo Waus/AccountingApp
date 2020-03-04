@@ -27,7 +27,9 @@ namespace JPK_generator
 
         public event SaveConfigEvent OnSaveConfig;
 
+        public delegate void GenerateJpkEvent(DateTime dateFrom, DateTime dateTo, MainForm dlg);
 
+        public event GenerateJpkEvent OnGenerateJpk;
 
         public void SetDataSource(object data)
         {
@@ -79,6 +81,13 @@ namespace JPK_generator
         private void SaveConfigBtn_Click(object sender, EventArgs e)
         {
             OnSaveConfig?.Invoke(bindingSourceConfig.Current, this);
+        }
+
+        private void GenerateJpkBtn_Click(object sender, EventArgs e)
+        {
+            DateTime dateFrom = Convert.ToDateTime(DateFromTB.Text);
+            DateTime dateTo = Convert.ToDateTime(DateToTB.Text);
+            OnGenerateJpk?.Invoke(dateFrom, dateTo, this);
         }
     }
 }
