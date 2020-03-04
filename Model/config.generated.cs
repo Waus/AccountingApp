@@ -19,8 +19,9 @@ namespace JPK_generator.Model
         public string my_address { get; set; }
         public string my_nip { get; set; }
         public string my_email { get; set; }
-        public string schema_version { get; set; }
         public string form_variant { get; set; }
         public string path_for_jpk { get; set; }
+        public string purpose_of_submission { get; set; }
+        public string system_name { get; set; }
     }
 }

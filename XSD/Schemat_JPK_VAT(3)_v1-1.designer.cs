@@ -260,18 +260,18 @@ namespace JPK_generator.XSD
             }
         }
 
-        [System.Xml.Serialization.XmlTextAttribute()]
-        public TKodFormularza Value
-        {
-            get
-            {
-                return this.valueField;
-            }
-            set
-            {
-                this.valueField = value;
-            }
-        }
+        //[System.Xml.Serialization.XmlTextAttribute()]
+        //public TKodFormularza Value
+        //{
+        //    get
+        //    {
+        //        return this.valueField;
+        //    }
+        //    set
+        //    {
+        //        this.valueField = value;
+        //    }
+        //}
     }
 
     public enum TKodFormularza

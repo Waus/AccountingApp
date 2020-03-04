@@ -17,14 +17,14 @@ namespace JPK_generator.Model
         public int invoice_id { get; set; }
         public string invoice_number { get; set; }
         public string description { get; set; }
-        public Nullable<decimal> amount_net { get; set; }
-        public Nullable<decimal> amount_vat { get; set; }
-        public Nullable<decimal> vat_rate { get; set; }
+        public decimal amount_net { get; set; }
+        public decimal amount_vat { get; set; }
+        public decimal vat_rate { get; set; }
         public string contractor_name { get; set; }
         public string contractor_address { get; set; }
         public string contractor_nip { get; set; }
-        public Nullable<bool> income { get; set; }
-        public Nullable<System.DateTime> date_of_issue { get; set; }
-        public Nullable<System.DateTime> date_of_sale { get; set; }
+        public bool income { get; set; }
+        public System.DateTime date_of_issue { get; set; }
+        public System.DateTime date_of_sale { get; set; }
     }
 }

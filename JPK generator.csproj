@@ -70,7 +70,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AppStart\Program.cs" />
-    <Compile Include="JpkGenerator.cs" />
+    <Compile Include="JpkCreator.cs" />
     <Compile Include="Model\config.generated.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

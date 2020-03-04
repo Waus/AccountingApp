@@ -105,9 +105,10 @@ namespace JPK_generator.Controllers
         {
             if (dateFrom > dateTo)
                 MessageBox.Show("Data do nie może być późniejsza niż data do", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            JpkGenerator generator = new JpkGenerator();
+            JpkCreator generator = new JpkCreator();
             IList<invoice> invoices = GetInvoicesListForJpk(dateFrom, dateTo);
-            generator.GenerateJpk(invoices, dateFrom, dateTo);
+            config config = GetConfigData();
+            generator.GenerateJpk(invoices, config, dateFrom, dateTo);
 
                 
         }
@@ -125,6 +126,11 @@ namespace JPK_generator.Controllers
         public IList<invoice> GetInvoicesListForJpk(DateTime dateFrom, DateTime dateTo)
         {
             return Dao.GetInvoicesListForJpk(dateFrom, dateTo);
+        }
+
+        public config GetConfigData()
+        {
+            return Dao.GetConfigData();
         }
 
 
