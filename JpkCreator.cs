@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using JPK_generator.Model;
-using JPK_generator.XSD;
 
 namespace JPK_generator
 {
@@ -22,7 +21,7 @@ namespace JPK_generator
             //jpk.Naglowek.KodFormularza.wersjaSchemy = "1-1";
             jpk.Naglowek.WariantFormularza = 3; //config.form_variant
             //jpk.Naglowek.CelZlozenia = config.purpose_of_submission; //0
-            jpk.Naglowek.DataWytworzeniaJPK = new DateTime();
+            jpk.Naglowek.DataWytworzeniaJPK = DateTime.Now;
             jpk.Naglowek.DataOd = dateFrom;
             jpk.Naglowek.DataDo = dateTo;
             jpk.Naglowek.NazwaSystemu = config.system_name;
@@ -35,7 +34,7 @@ namespace JPK_generator
 
             var incomeInvoices = invoices.Where(a => a.income == true).ToArray();
             decimal incomeSum = 0;
-            jpk.SprzedazWiersz = new List<JPKSprzedazWiersz>();
+            jpk.SprzedazWiersz = new JPKSprzedazWiersz[incomeInvoices.Count()];
             for (var i = 0; i < incomeInvoices.Count(); i++)
             {
                 var currentInvoice = incomeInvoices[i];
@@ -47,9 +46,10 @@ namespace JPK_generator
                 item.DowodSprzedazy = currentInvoice.invoice_number;
                 item.DataWystawienia = currentInvoice.date_of_issue;
                 item.DataSprzedazy = currentInvoice.date_of_sale;
+                item.DataSprzedazySpecified = true;
                 item.K_19 = currentInvoice.amount_net;
                 item.K_20 = currentInvoice.amount_vat;
-                jpk.SprzedazWiersz.Add(item);
+                jpk.SprzedazWiersz[i] = item;
                 incomeSum = incomeSum + currentInvoice.amount_vat;
             }
 
@@ -59,7 +59,7 @@ namespace JPK_generator
 
             var outcomeInvoices = invoices.Where(a => a.income == false).ToArray();
             decimal outcomeSum = 0;
-            jpk.ZakupWiersz = new List<JPKZakupWiersz>();
+            jpk.ZakupWiersz = new JPKZakupWiersz[outcomeInvoices.Count()];
             for (var i = 0; i < outcomeInvoices.Count(); i++)
             {
                 var currentInvoice = outcomeInvoices[i];
@@ -73,13 +73,13 @@ namespace JPK_generator
                 item.DataWplywu = currentInvoice.date_of_sale; //być może zamieniona kolejność
                 item.K_45 = currentInvoice.amount_net;
                 item.K_46 = currentInvoice.amount_vat;
-                jpk.ZakupWiersz.Add(item);
+                jpk.ZakupWiersz[i] = item;
                 outcomeSum = outcomeSum + currentInvoice.amount_vat;
             }
 
             jpk.ZakupCtrl = new JPKZakupCtrl();
             jpk.ZakupCtrl.LiczbaWierszyZakupow = outcomeInvoices.Count().ToString();
-            jpk.ZakupCtrl.PodatekNaliczony = incomeSum;
+            jpk.ZakupCtrl.PodatekNaliczony = outcomeSum;
 
             XmlSerializer serializer = new XmlSerializer(typeof(JPK));
             string jpkFileName = "JPK_" + new DateTime().Month + "_" + new DateTime().Year + ".xml";

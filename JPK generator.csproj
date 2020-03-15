@@ -94,11 +94,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XSD\ElementarneTypyDanych_v4-0E.designer.cs" />
-    <Compile Include="XSD\KodyKrajow_v4-1E.designer.cs" />
-    <Compile Include="XSD\KodyNaczelnikowUrzedowSkarbowych_v3-0E.designer.cs" />
-    <Compile Include="XSD\KodyUrzedowSkarbowych_v4-0E.designer.cs" />
-    <Compile Include="XSD\Schemat_JPK_VAT%283%29_v1-1.designer.cs" />
+    <Compile Include="XSD\JPK.cs" />
     <EmbeddedResource Include="Forms\InvoiceEditForm.resx">
       <DependentUpon>InvoiceEditForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,23 +127,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="XSD\ElementarneTypyDanych_v4-0E.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\KodyKrajow_v4-1E.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\KodyNaczelnikowUrzedowSkarbowych_v3-0E.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\KodyUrzedowSkarbowych_v4-0E.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\Schemat_JPK_VAT%283%29_v1-1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>LxCodeGenerator</Generator>
-      <LastGenOutput>Schemat_JPK_VAT%283%29_v1-1.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

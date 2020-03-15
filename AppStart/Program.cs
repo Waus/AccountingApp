@@ -23,6 +23,7 @@ namespace JPK_generator
 
             MainFormController controller = new MainFormController(view);
             controller.PrepareView(view);
+            controller.PrepareConfigTab(view);
             Application.Run(view);
             //Application.Run(new MainForm());
         }

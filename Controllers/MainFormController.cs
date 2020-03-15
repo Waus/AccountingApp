@@ -1,7 +1,6 @@
 ﻿using JPK_generator.Dao;
 using JPK_generator.Forms;
 using JPK_generator.Model;
-using JPK_generator.XSD;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -108,9 +107,7 @@ namespace JPK_generator.Controllers
             JpkCreator generator = new JpkCreator();
             IList<invoice> invoices = GetInvoicesListForJpk(dateFrom, dateTo);
             config config = GetConfigData();
-            generator.GenerateJpk(invoices, config, dateFrom, dateTo);
-
-                
+            generator.GenerateJpk(invoices, config, dateFrom, dateTo);     
         }
 
         public IList<invoice> FetchList()

@@ -73,11 +73,6 @@ namespace JPK_generator
             OnDelete?.Invoke(bindingSource.Current, this);
         }
 
-        private void MainFormTabControl_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-            controller?.PrepareConfigTab(this);
-        }
-
         private void SaveConfigBtn_Click(object sender, EventArgs e)
         {
             OnSaveConfig?.Invoke(bindingSourceConfig.Current, this);
@@ -88,6 +83,15 @@ namespace JPK_generator
             DateTime dateFrom = Convert.ToDateTime(DateFromTB.Text);
             DateTime dateTo = Convert.ToDateTime(DateToTB.Text);
             OnGenerateJpk?.Invoke(dateFrom, dateTo, this);
+        }
+
+        private void ForMonthDTP_ValueChanged(object sender, EventArgs e)
+        {
+            var date = ForMonthDTP.Value;
+            var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+            DateFromTB.Text = firstDayOfMonth.ToString("yyyy-MM-dd");
+            DateToTB.Text = lastDayOfMonth.ToString("yyyy-MM-dd");
         }
     }
 }
