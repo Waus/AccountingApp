@@ -5,8 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="4d13ad1641a34908a4f9a95102fc5bb7" Name="Diagram1">
-        <EntityTypeShape EntityType="Model.invoice" Width="1.5" PointX="2.875" PointY="0.75" />
         <EntityTypeShape EntityType="Model.config" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.invoice" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

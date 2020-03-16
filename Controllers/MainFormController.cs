@@ -66,6 +66,8 @@ namespace JPK_generator.Controllers
         public void dlg_OnSave(object entity, InvoiceEditForm dlg)
         {
             invoice invoice = entity == null ? new invoice() : entity as invoice;
+            if (invoice.date_added == null)
+                invoice.date_added = DateTime.Now;
             if (invoice.invoice_id == 0)
             {
                 Dao.SaveNew(invoice);
@@ -77,7 +79,10 @@ namespace JPK_generator.Controllers
         public void dlg_OnDelete(object entity, MainForm view)
         {
             if (entity == null)
+            {
                 MessageBox.Show("Zaznacz rekord do usunięcia", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             invoice invoice = entity as invoice;
             string message = "Czy jesteś pewien?";
             string title = "Potwierdzenie usunięcia faktury";
@@ -103,7 +108,7 @@ namespace JPK_generator.Controllers
         public void dlg_OnGenerateJpk(DateTime dateFrom, DateTime dateTo, MainForm view)
         {
             if (dateFrom > dateTo)
-                MessageBox.Show("Data do nie może być późniejsza niż data do", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Data do nie może być późniejsza niż data od", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
             JpkCreator generator = new JpkCreator();
             IList<invoice> invoices = GetInvoicesListForJpk(dateFrom, dateTo);
             config config = GetConfigData();

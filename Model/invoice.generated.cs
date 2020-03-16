@@ -26,5 +26,6 @@ namespace JPK_generator.Model
         public bool income { get; set; }
         public System.DateTime date_of_issue { get; set; }
         public System.DateTime date_of_sale { get; set; }
+        public Nullable<System.DateTime> date_added { get; set; }
     }
 }

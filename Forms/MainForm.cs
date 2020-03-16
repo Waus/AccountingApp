@@ -55,6 +55,11 @@ namespace JPK_generator
             if (controller != null)
             {
                 invoice invoice = bindingSource.Current as invoice;
+                if (invoice == null)
+                {
+                    MessageBox.Show("Zaznacz rekord do edycji", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
                 controller.ShowEditForm(invoice);
             }
         }

@@ -35,6 +35,7 @@
           <Property Name="income" Type="bit" Nullable="false" />
           <Property Name="date_of_issue" Type="date" Nullable="false" />
           <Property Name="date_of_sale" Type="date" Nullable="false" />
+          <Property Name="date_added" Type="datetime" />
         </EntityType>
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="config" EntityType="Self.config" Schema="dbo" store:Type="Tables" />
@@ -45,26 +46,9 @@
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="db0Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="invoice" EntityType="Model.invoice" />
           <EntitySet Name="config" EntityType="Model.config" />
+          <EntitySet Name="invoice" EntityType="Model.invoice" />
         </EntityContainer>
-        <EntityType Name="invoice">
-          <Key>
-            <PropertyRef Name="invoice_id" />
-          </Key>
-          <Property Name="invoice_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="invoice_number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="amount_net" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="amount_vat" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="vat_rate" Type="Decimal" Precision="4" Scale="2" Nullable="false" />
-          <Property Name="contractor_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="contractor_address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="contractor_nip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="income" Type="Boolean" Nullable="false" />
-          <Property Name="date_of_issue" Type="DateTime" Precision="0" Nullable="false" />
-          <Property Name="date_of_sale" Type="DateTime" Precision="0" Nullable="false" />
-        </EntityType>
         <EntityType Name="config">
           <Key>
             <PropertyRef Name="config_id" />
@@ -79,30 +63,30 @@
           <Property Name="purpose_of_submission" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="system_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="invoice">
+          <Key>
+            <PropertyRef Name="invoice_id" />
+          </Key>
+          <Property Name="invoice_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="invoice_number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="amount_net" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="amount_vat" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="vat_rate" Type="Decimal" Nullable="false" Precision="4" Scale="2" />
+          <Property Name="contractor_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="contractor_address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="contractor_nip" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="income" Type="Boolean" Nullable="false" />
+          <Property Name="date_of_issue" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="date_of_sale" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="db0Entities">
-          <EntitySetMapping Name="invoice">
-            <EntityTypeMapping TypeName="Model.invoice">
-              <MappingFragment StoreEntitySet="invoice">
-                <ScalarProperty Name="date_of_sale" ColumnName="date_of_sale" />
-                <ScalarProperty Name="date_of_issue" ColumnName="date_of_issue" />
-                <ScalarProperty Name="income" ColumnName="income" />
-                <ScalarProperty Name="contractor_nip" ColumnName="contractor_nip" />
-                <ScalarProperty Name="contractor_address" ColumnName="contractor_address" />
-                <ScalarProperty Name="contractor_name" ColumnName="contractor_name" />
-                <ScalarProperty Name="vat_rate" ColumnName="vat_rate" />
-                <ScalarProperty Name="amount_vat" ColumnName="amount_vat" />
-                <ScalarProperty Name="amount_net" ColumnName="amount_net" />
-                <ScalarProperty Name="description" ColumnName="description" />
-                <ScalarProperty Name="invoice_number" ColumnName="invoice_number" />
-                <ScalarProperty Name="invoice_id" ColumnName="invoice_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="config">
             <EntityTypeMapping TypeName="Model.config">
               <MappingFragment StoreEntitySet="config">
@@ -115,6 +99,25 @@
                 <ScalarProperty Name="my_address" ColumnName="my_address" />
                 <ScalarProperty Name="my_name" ColumnName="my_name" />
                 <ScalarProperty Name="config_id" ColumnName="config_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="invoice">
+            <EntityTypeMapping TypeName="Model.invoice">
+              <MappingFragment StoreEntitySet="invoice">
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+                <ScalarProperty Name="date_of_sale" ColumnName="date_of_sale" />
+                <ScalarProperty Name="date_of_issue" ColumnName="date_of_issue" />
+                <ScalarProperty Name="income" ColumnName="income" />
+                <ScalarProperty Name="contractor_nip" ColumnName="contractor_nip" />
+                <ScalarProperty Name="contractor_address" ColumnName="contractor_address" />
+                <ScalarProperty Name="contractor_name" ColumnName="contractor_name" />
+                <ScalarProperty Name="vat_rate" ColumnName="vat_rate" />
+                <ScalarProperty Name="amount_vat" ColumnName="amount_vat" />
+                <ScalarProperty Name="amount_net" ColumnName="amount_net" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="invoice_number" ColumnName="invoice_number" />
+                <ScalarProperty Name="invoice_id" ColumnName="invoice_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

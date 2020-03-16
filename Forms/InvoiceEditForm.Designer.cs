@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.InvoiceNumberLbl = new System.Windows.Forms.Label();
             this.InvoiceNumberTB = new System.Windows.Forms.TextBox();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DescriptionTB = new System.Windows.Forms.TextBox();
             this.DescriptionLbl = new System.Windows.Forms.Label();
             this.NetAmountTB = new System.Windows.Forms.TextBox();
@@ -54,6 +53,7 @@
             this.DateOfIssueDTP = new System.Windows.Forms.DateTimePicker();
             this.DateOfSaleDTP = new System.Windows.Forms.DateTimePicker();
             this.SaveBtn = new System.Windows.Forms.Button();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,10 +75,6 @@
             this.InvoiceNumberTB.Name = "InvoiceNumberTB";
             this.InvoiceNumberTB.Size = new System.Drawing.Size(239, 22);
             this.InvoiceNumberTB.TabIndex = 1;
-            // 
-            // bindingSource
-            // 
-            this.bindingSource.DataSource = typeof(JPK_generator.Model.invoice);
             // 
             // DescriptionTB
             // 
@@ -261,7 +257,7 @@
             // 
             // CancelBtn
             // 
-            this.CancelBtn.Location = new System.Drawing.Point(899, 253);
+            this.CancelBtn.Location = new System.Drawing.Point(899, 250);
             this.CancelBtn.Margin = new System.Windows.Forms.Padding(4);
             this.CancelBtn.Name = "CancelBtn";
             this.CancelBtn.Size = new System.Drawing.Size(155, 28);
@@ -273,6 +269,7 @@
             // DateOfIssueDTP
             // 
             this.DateOfIssueDTP.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bindingSource, "date_of_issue", true));
+            this.DateOfIssueDTP.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "date_of_issue", true));
             this.DateOfIssueDTP.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DateOfIssueDTP.Location = new System.Drawing.Point(52, 160);
             this.DateOfIssueDTP.Name = "DateOfIssueDTP";
@@ -282,6 +279,7 @@
             // DateOfSaleDTP
             // 
             this.DateOfSaleDTP.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bindingSource, "date_of_sale", true));
+            this.DateOfSaleDTP.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource, "date_of_sale", true));
             this.DateOfSaleDTP.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DateOfSaleDTP.Location = new System.Drawing.Point(52, 256);
             this.DateOfSaleDTP.Name = "DateOfSaleDTP";
@@ -290,7 +288,7 @@
             // 
             // SaveBtn
             // 
-            this.SaveBtn.Location = new System.Drawing.Point(899, 154);
+            this.SaveBtn.Location = new System.Drawing.Point(899, 160);
             this.SaveBtn.Margin = new System.Windows.Forms.Padding(4);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(155, 28);
@@ -298,6 +296,10 @@
             this.SaveBtn.Text = "Zapisz";
             this.SaveBtn.UseVisualStyleBackColor = true;
             this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
+            // 
+            // bindingSource
+            // 
+            this.bindingSource.DataSource = typeof(JPK_generator.Model.invoice);
             // 
             // InvoiceEditForm
             // 

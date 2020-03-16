@@ -25,7 +25,7 @@ namespace JPK_generator.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<invoice> invoice { get; set; }
         public virtual DbSet<config> config { get; set; }
+        public virtual DbSet<invoice> invoice { get; set; }
     }
 }

@@ -61,6 +61,8 @@
             this.MyAddressTB = new System.Windows.Forms.TextBox();
             this.MyNameLbl = new System.Windows.Forms.Label();
             this.MyNameTB = new System.Windows.Forms.TextBox();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceConfig = new System.Windows.Forms.BindingSource(this.components);
             this.invoicenumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountnetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,8 +73,6 @@
             this.incomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateofissueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateofsaleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSourceConfig = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.MainFormTabControl.SuspendLayout();
             this.InvoicesTab.SuspendLayout();
@@ -451,6 +451,14 @@
             this.MyNameTB.Size = new System.Drawing.Size(261, 22);
             this.MyNameTB.TabIndex = 0;
             // 
+            // bindingSource
+            // 
+            this.bindingSource.DataSource = typeof(JPK_generator.Model.invoice);
+            // 
+            // bindingSourceConfig
+            // 
+            this.bindingSourceConfig.DataSource = typeof(JPK_generator.Model.config);
+            // 
             // invoicenumberDataGridViewTextBoxColumn
             // 
             this.invoicenumberDataGridViewTextBoxColumn.DataPropertyName = "invoice_number";
@@ -541,14 +549,6 @@
             this.dateofsaleDataGridViewTextBoxColumn.ReadOnly = true;
             this.dateofsaleDataGridViewTextBoxColumn.Width = 125;
             // 
-            // bindingSource
-            // 
-            this.bindingSource.DataSource = typeof(JPK_generator.Model.invoice);
-            // 
-            // bindingSourceConfig
-            // 
-            this.bindingSourceConfig.DataSource = typeof(JPK_generator.Model.config);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -578,16 +578,6 @@
         private System.Windows.Forms.BindingSource bindingSource;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button EditBtn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn invoicenumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amountnetDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amountvatDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vatrateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contractornameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contractornipDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn incomeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateofissueDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateofsaleDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button AddNewBtn;
         private System.Windows.Forms.Button DeleteBtn;
         private System.Windows.Forms.TabControl MainFormTabControl;
@@ -619,6 +609,16 @@
         private System.Windows.Forms.TextBox SystemNameTB;
         private System.Windows.Forms.DateTimePicker ForMonthDTP;
         private System.Windows.Forms.Label ForMonthLbl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn invoicenumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amountnetDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amountvatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vatrateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contractornameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contractornipDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn incomeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateofissueDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateofsaleDataGridViewTextBoxColumn;
     }
 }
 
