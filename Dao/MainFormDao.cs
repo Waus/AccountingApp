@@ -1,18 +1,18 @@
-﻿using JPK_generator.Model;
+﻿using AccountingApp.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JPK_generator.Dao
+namespace AccountingApp.Dao
 {
     class MainFormDao
     {
-        public db0Entities context { get; set; }
+        public AccountingAppEntities context { get; set; }
         public MainFormDao()
         {
-            context = new db0Entities();
+            context = new AccountingAppEntities();
         }
 
         public void SaveNew(invoice newInvoice)

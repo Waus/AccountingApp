@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JPK_generator.Model
+namespace AccountingApp.Model
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class db0Entities : DbContext
+    public partial class AccountingAppEntities : DbContext
     {
-        public db0Entities()
-            : base("name=db0Entities")
+        public AccountingAppEntities()
+            : base("name=AccountingAppEntities")
         {
         }
     

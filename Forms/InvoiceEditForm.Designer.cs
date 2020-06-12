@@ -1,4 +1,4 @@
-﻿namespace JPK_generator.Forms
+﻿namespace AccountingApp.Forms
 {
     partial class InvoiceEditForm
     {
@@ -299,7 +299,7 @@
             // 
             // bindingSource
             // 
-            this.bindingSource.DataSource = typeof(JPK_generator.Model.invoice);
+            this.bindingSource.DataSource = typeof(AccountingApp.Model.invoice);
             // 
             // InvoiceEditForm
             // 

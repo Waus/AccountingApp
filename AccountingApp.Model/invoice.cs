@@ -1,4 +1,4 @@
-﻿namespace JPK_generator.Model
+﻿namespace AccountingApp.Model
 {
     using System;
     using System.Collections.Generic;

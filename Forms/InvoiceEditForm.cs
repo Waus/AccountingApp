@@ -1,4 +1,4 @@
-﻿using JPK_generator.Model;
+﻿using AccountingApp.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JPK_generator.Forms
+namespace AccountingApp.Forms
 {
     public partial class InvoiceEditForm : Form
     {

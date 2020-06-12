@@ -1,6 +1,6 @@
-﻿using JPK_generator.Controllers;
-using JPK_generator.Forms;
-using JPK_generator.Model;
+﻿using AccountingApp.Controllers;
+using AccountingApp.Forms;
+using AccountingApp.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JPK_generator
+namespace AccountingApp
 {
     public partial class MainForm : Form
     {

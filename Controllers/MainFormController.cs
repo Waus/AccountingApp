@@ -1,6 +1,6 @@
-﻿using JPK_generator.Dao;
-using JPK_generator.Forms;
-using JPK_generator.Model;
+﻿using AccountingApp.Dao;
+using AccountingApp.Forms;
+using AccountingApp.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JPK_generator.Controllers
+namespace AccountingApp.Controllers
 {
     class MainFormController
     {

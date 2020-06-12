@@ -18,7 +18,7 @@ using System.Xml.Serialization;
 // xsd Schemat_JPK_VAT(3)_v1-1.xsd StrukturyDanych_v4-0E.xsd ElementarneTypyDanych_v4-0E.xsd KodyUrzedowSkarbowych_v4-0E.xsd KodyKrajow_v4-1E.xsd /c
 //
 
-namespace JPK_generator.Model
+namespace AccountingApp.Model
 {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]

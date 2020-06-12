@@ -45,7 +45,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="db0Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="AccountingAppEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="config" EntityType="Model.config" />
           <EntitySet Name="invoice" EntityType="Model.invoice" />
         </EntityContainer>
@@ -86,7 +86,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="db0Entities">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="AccountingAppEntities">
           <EntitySetMapping Name="config">
             <EntityTypeMapping TypeName="Model.config">
               <MappingFragment StoreEntitySet="config">

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AccountingApp.Properties
+namespace AccountingApp.Model.Properties
 {
 
 

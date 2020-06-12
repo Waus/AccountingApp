@@ -1,4 +1,4 @@
-﻿namespace JPK_generator
+﻿namespace AccountingApp
 {
     partial class MainForm
     {
@@ -453,11 +453,11 @@
             // 
             // bindingSource
             // 
-            this.bindingSource.DataSource = typeof(JPK_generator.Model.invoice);
+            this.bindingSource.DataSource = typeof(AccountingApp.Model.invoice);
             // 
             // bindingSourceConfig
             // 
-            this.bindingSourceConfig.DataSource = typeof(JPK_generator.Model.config);
+            this.bindingSourceConfig.DataSource = typeof(AccountingApp.Model.config);
             // 
             // invoicenumberDataGridViewTextBoxColumn
             // 
