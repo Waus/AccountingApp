@@ -1,4 +1,5 @@
 ﻿using AccountingApp.Dao;
+using AccountingApp.EF;
 using AccountingApp.Forms;
 using AccountingApp.Model;
 using System;
@@ -15,12 +16,15 @@ namespace AccountingApp.Controllers
 
         private MainForm View { get; set; }
 
-        private MainFormDao Dao { get; set; }
+        private InvoiceDao InvoiceDao { get; set; }
+
+        private ConfigDao ConfigDao { get; set; }
 
         public MainFormController(MainForm view)
         {
             View = view;
-            Dao = new MainFormDao();
+            InvoiceDao = new InvoiceDao();
+            ConfigDao = new ConfigDao();
         }
 
         public void PrepareView(MainForm view)
@@ -33,7 +37,7 @@ namespace AccountingApp.Controllers
 
         public void PrepareConfigTab(MainForm view)
         {
-            var configData = FetchConfigData();
+            config configData = GetConfigData();
             view.SetConfigDataSource(configData);
         }
 
@@ -65,15 +69,15 @@ namespace AccountingApp.Controllers
 
         public void dlg_OnSave(object entity, InvoiceEditForm dlg)
         {
-            invoice invoice = entity == null ? new invoice() : entity as invoice;
+            invoice invoice = entity as invoice ?? new invoice();
             if (invoice.date_added == null)
                 invoice.date_added = DateTime.Now;
             if (invoice.invoice_id == 0)
             {
-                Dao.SaveNew(invoice);
+                InvoiceDao.Save(invoice);
                 RefreshView(View);
             }
-            else Dao.Save(invoice);
+            else InvoiceDao.Save(invoice);
         }
 
         public void dlg_OnDelete(object entity, MainForm view)
@@ -90,7 +94,7 @@ namespace AccountingApp.Controllers
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
-                Dao.Delete(invoice);
+                InvoiceDao.Delete(invoice);
                 RefreshView(view);
             }
             else
@@ -102,7 +106,7 @@ namespace AccountingApp.Controllers
         public void dlg_OnSaveConfig(object entity, MainForm view)
         {
             config config = entity as config;
-            Dao.SaveConfig(config);
+            ConfigDao.Save(config);
         }
 
         public void dlg_OnGenerateJpk(DateTime dateFrom, DateTime dateTo, MainForm view)
@@ -110,32 +114,25 @@ namespace AccountingApp.Controllers
             if (dateFrom > dateTo)
                 MessageBox.Show("Data do nie może być późniejsza niż data od", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
             JpkCreator generator = new JpkCreator();
-            IList<invoice> invoices = GetInvoicesListForJpk(dateFrom, dateTo);
+            IList<invoice> invoices = FetchListForJpk(dateFrom, dateTo);
             config config = GetConfigData();
             generator.GenerateJpk(invoices, config, dateFrom, dateTo);     
         }
 
         public IList<invoice> FetchList()
         {
-            return Dao.GetInvoices();
+            return InvoiceDao.FetchList();
         }
 
-        public config FetchConfigData()
+        public IList<invoice> FetchListForJpk(DateTime dateFrom, DateTime dateTo)
         {
-            return Dao.GetConfigData();
-        }
-
-        public IList<invoice> GetInvoicesListForJpk(DateTime dateFrom, DateTime dateTo)
-        {
-            return Dao.GetInvoicesListForJpk(dateFrom, dateTo);
+            return InvoiceDao.FetchListForJpk(dateFrom, dateTo);
         }
 
         public config GetConfigData()
         {
-            return Dao.GetConfigData();
+            return ConfigDao.Get(1);
         }
-
-
 
 
     }

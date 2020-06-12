@@ -56,7 +56,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\MainFormController.cs" />
-    <Compile Include="Dao\MainFormDao.cs" />
     <Compile Include="Forms\InvoiceEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +108,14 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="AccountingApp.Dao\AccountingApp.Dao.csproj">
+      <Project>{2b59d971-0b6b-42d0-809f-2b07b8759b0c}</Project>
+      <Name>AccountingApp.Dao</Name>
+    </ProjectReference>
+    <ProjectReference Include="AccountingApp.EF\AccountingApp.EF.csproj">
+      <Project>{98fd6249-0fa9-421c-8a33-ca25d5f17ea5}</Project>
+      <Name>AccountingApp.EF</Name>
+    </ProjectReference>
     <ProjectReference Include="AccountingApp.Model\AccountingApp.Model.csproj">
       <Project>{8694688f-9ed1-46ef-b6ae-6d906a2c8015}</Project>
       <Name>AccountingApp.Model</Name>

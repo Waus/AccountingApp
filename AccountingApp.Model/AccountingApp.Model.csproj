@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbContextExtensions.cs" />
     <Compile Include="config.generated.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

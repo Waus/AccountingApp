@@ -19,6 +19,7 @@ namespace AccountingApp
         {
             SetController();
             InitializeComponent();
+            CalculateDates();
         }
 
         public event Action<object, MainForm> OnDelete;
@@ -40,7 +41,7 @@ namespace AccountingApp
 
         public void SetConfigDataSource(object data)
         {
-                bindingSourceConfig.DataSource = data != null ? data : new config();
+            bindingSourceConfig.DataSource = data ?? new config();
         }
 
         private MainFormController controller { get; set; }
@@ -91,6 +92,11 @@ namespace AccountingApp
         }
 
         private void ForMonthDTP_ValueChanged(object sender, EventArgs e)
+        {
+            CalculateDates();
+        }
+
+        private void CalculateDates()
         {
             var date = ForMonthDTP.Value;
             var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
