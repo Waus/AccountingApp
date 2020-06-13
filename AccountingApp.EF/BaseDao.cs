@@ -1,4 +1,5 @@
-﻿using AccountingApp.Model;
+﻿using AccountingApp.Dao;
+using AccountingApp.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AccountingApp.EF
 {
-    public abstract class BaseDao<TEntity>
+    public abstract class BaseDao<TEntity> : IBaseDao<TEntity>
         where TEntity : class, new()
     {
         public AccountingAppEntities context { get; set; }

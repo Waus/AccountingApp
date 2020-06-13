@@ -16,9 +16,9 @@ namespace AccountingApp.Controllers
 
         private MainForm View { get; set; }
 
-        private InvoiceDao InvoiceDao { get; set; }
+        private IInvoiceDao InvoiceDao { get; set; }
 
-        private ConfigDao ConfigDao { get; set; }
+        private IConfigDao ConfigDao { get; set; }
 
         public MainFormController(MainForm view)
         {

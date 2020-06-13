@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AccountingApp.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AccountingApp.Dao
 {
-    public class Class1
+    public interface IConfigDao : IBaseDao<config>
     {
     }
 }

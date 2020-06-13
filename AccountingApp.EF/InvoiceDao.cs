@@ -1,4 +1,5 @@
-﻿using AccountingApp.Model;
+﻿using AccountingApp.Dao;
+using AccountingApp.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AccountingApp.EF
 {
-    public class InvoiceDao : BaseDao<invoice>
+    public class InvoiceDao : BaseDao<invoice>, IInvoiceDao
     {
         public InvoiceDao()
         {
