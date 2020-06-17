@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 using AccountingApp.Model;
+using System.IO;
 
 namespace AccountingApp
 {
@@ -85,8 +85,8 @@ namespace AccountingApp
             string jpkFileName = "JPK_" + new DateTime().Month + "_" + new DateTime().Year + ".xml";
             string path = config.path_for_jpk + "\\" + jpkFileName;
 
-            using (System.IO.MemoryStream stream = new System.IO.MemoryStream())
-            using (System.IO.StreamWriter writer = new System.IO.StreamWriter(path, false, System.Text.Encoding.UTF8))
+            using (MemoryStream stream = new MemoryStream())
+            using (StreamWriter writer = new StreamWriter(path, false, Encoding.UTF8))
             {
                 serializer.Serialize(writer, jpk);
             }
