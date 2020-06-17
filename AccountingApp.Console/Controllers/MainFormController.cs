@@ -113,7 +113,7 @@ namespace AccountingApp.Controllers
         {
             if (dateFrom > dateTo)
                 MessageBox.Show("Data do nie może być późniejsza niż data od", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            JpkCreator generator = new JpkCreator();
+            JpkGenerator generator = new JpkGenerator();
             IList<invoice> invoices = FetchListForJpk(dateFrom, dateTo);
             config config = GetConfigData();
             generator.GenerateJpk(invoices, config, dateFrom, dateTo);     

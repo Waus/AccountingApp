@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{948AECEC-0093-4E75-ADAE-0F8F676B5C0F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>JPK_generator</RootNamespace>
-    <AssemblyName>JPK generator</AssemblyName>
+    <RootNamespace>AccountingApp.Console</RootNamespace>
+    <AssemblyName>AccountingApp.Console</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -69,7 +69,6 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AppStart\Program.cs" />
-    <Compile Include="JpkCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\InvoiceEditForm.resx">
       <DependentUpon>InvoiceEditForm.cs</DependentUpon>
@@ -85,8 +84,8 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="packages.config" />
     <None Include="Properties\DataSources\JPK_generator.Model.config.datasource" />
     <None Include="Properties\DataSources\JPK_generator.Model.invoice.datasource" />
     <None Include="Properties\DataSources\JPK_generator.Model.invoices.datasource" />
@@ -108,15 +107,19 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="AccountingApp.Dao\AccountingApp.Dao.csproj">
+    <ProjectReference Include="..\AccountigApp.Logic\AccountigApp.Logic.csproj">
+      <Project>{d54ecefd-6e84-4430-b79c-b416195f41be}</Project>
+      <Name>AccountigApp.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AccountingApp.Dao\AccountingApp.Dao.csproj">
       <Project>{2b59d971-0b6b-42d0-809f-2b07b8759b0c}</Project>
       <Name>AccountingApp.Dao</Name>
     </ProjectReference>
-    <ProjectReference Include="AccountingApp.EF\AccountingApp.EF.csproj">
+    <ProjectReference Include="..\AccountingApp.EF\AccountingApp.EF.csproj">
       <Project>{98fd6249-0fa9-421c-8a33-ca25d5f17ea5}</Project>
       <Name>AccountingApp.EF</Name>
     </ProjectReference>
-    <ProjectReference Include="AccountingApp.Model\AccountingApp.Model.csproj">
+    <ProjectReference Include="..\AccountingApp.Model\AccountingApp.Model.csproj">
       <Project>{8694688f-9ed1-46ef-b6ae-6d906a2c8015}</Project>
       <Name>AccountingApp.Model</Name>
     </ProjectReference>

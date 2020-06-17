@@ -8,7 +8,7 @@ using AccountingApp.Model;
 
 namespace AccountingApp
 {
-    class JpkCreator
+    public class JpkGenerator
     {
 
         public IList<string> GenerateJpk(IList<invoice> invoices, config config, DateTime dateFrom, DateTime dateTo)
