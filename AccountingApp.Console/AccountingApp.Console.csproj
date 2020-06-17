@@ -107,7 +107,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AccountigApp.Logic\AccountingApp.Logic.csproj">
+    <ProjectReference Include="..\AccountingApp.Logic\AccountingApp.Logic.csproj">
       <Project>{d54ecefd-6e84-4430-b79c-b416195f41be}</Project>
       <Name>AccountingApp.Logic</Name>
     </ProjectReference>

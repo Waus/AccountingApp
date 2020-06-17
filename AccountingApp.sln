@@ -14,7 +14,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingApp.Dao", "Accoun
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingApp.Console", "AccountingApp.Console\AccountingApp.Console.csproj", "{948AECEC-0093-4E75-ADAE-0F8F676B5C0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingApp.Logic", "AccountigApp.Logic\AccountingApp.Logic.csproj", "{D54ECEFD-6E84-4430-B79C-B416195F41BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingApp.Logic", "AccountingApp.Logic\AccountingApp.Logic.csproj", "{D54ECEFD-6E84-4430-B79C-B416195F41BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingApp.WCF", "AccountingApp.WCF\AccountingApp.WCF.csproj", "{BEE878B9-0839-4761-B926-26B977219F8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +44,10 @@ Global
 		{D54ECEFD-6E84-4430-B79C-B416195F41BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D54ECEFD-6E84-4430-B79C-B416195F41BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D54ECEFD-6E84-4430-B79C-B416195F41BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEE878B9-0839-4761-B926-26B977219F8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEE878B9-0839-4761-B926-26B977219F8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEE878B9-0839-4761-B926-26B977219F8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEE878B9-0839-4761-B926-26B977219F8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
