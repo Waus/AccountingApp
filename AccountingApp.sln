@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingApp.Logic", "Acco
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingApp.WCF", "AccountingApp.WCF\AccountingApp.WCF.csproj", "{BEE878B9-0839-4761-B926-26B977219F8D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingApp.UnitTests", "AccountingApp.UnitTests\AccountingApp.UnitTests.csproj", "{D27906A3-CC12-4699-BE72-C3B5C652E40A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{BEE878B9-0839-4761-B926-26B977219F8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEE878B9-0839-4761-B926-26B977219F8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEE878B9-0839-4761-B926-26B977219F8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D27906A3-CC12-4699-BE72-C3B5C652E40A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D27906A3-CC12-4699-BE72-C3B5C652E40A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D27906A3-CC12-4699-BE72-C3B5C652E40A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D27906A3-CC12-4699-BE72-C3B5C652E40A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

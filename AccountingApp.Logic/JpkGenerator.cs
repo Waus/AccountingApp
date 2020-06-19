@@ -11,7 +11,7 @@ namespace AccountingApp
     public class JpkGenerator
     {
 
-        public IList<string> GenerateJpk(IList<invoice> invoices, config config, DateTime dateFrom, DateTime dateTo)
+        public JPK GenerateJpk(IList<invoice> invoices, config config, DateTime dateFrom, DateTime dateTo)
         {
             JPK jpk = new JPK();
 
@@ -90,7 +90,7 @@ namespace AccountingApp
             {
                 serializer.Serialize(writer, jpk);
             }
-            return null;
+            return jpk;
         }
 
     }
