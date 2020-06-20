@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ConsoleWebService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/AccountingApp.Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IConsoleWebService_SaveConfig_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveConfig" />
+  </wsdl:message>
+  <wsdl:message name="IConsoleWebService_SaveConfig_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsoleWebService_GetConfig_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConfig" />
+  </wsdl:message>
+  <wsdl:message name="IConsoleWebService_GetConfig_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsoleWebService_SaveInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IConsoleWebService_SaveInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsoleWebService_DeleteInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IConsoleWebService_DeleteInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsoleWebService_GetInvoiceData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvoiceData" />
+  </wsdl:message>
+  <wsdl:message name="IConsoleWebService_GetInvoiceData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvoiceDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsoleWebService_FetchListForJpk_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchListForJpk" />
+  </wsdl:message>
+  <wsdl:message name="IConsoleWebService_FetchListForJpk_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchListForJpkResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IConsoleWebService">
+    <wsdl:operation name="SaveConfig">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConsoleWebService/SaveConfig" message="tns:IConsoleWebService_SaveConfig_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConsoleWebService/SaveConfigResponse" message="tns:IConsoleWebService_SaveConfig_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfig">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConsoleWebService/GetConfig" message="tns:IConsoleWebService_GetConfig_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConsoleWebService/GetConfigResponse" message="tns:IConsoleWebService_GetConfig_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConsoleWebService/SaveInvoice" message="tns:IConsoleWebService_SaveInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConsoleWebService/SaveInvoiceResponse" message="tns:IConsoleWebService_SaveInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConsoleWebService/DeleteInvoice" message="tns:IConsoleWebService_DeleteInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConsoleWebService/DeleteInvoiceResponse" message="tns:IConsoleWebService_DeleteInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConsoleWebService/GetInvoiceData" message="tns:IConsoleWebService_GetInvoiceData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConsoleWebService/GetInvoiceDataResponse" message="tns:IConsoleWebService_GetInvoiceData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchListForJpk">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConsoleWebService/FetchListForJpk" message="tns:IConsoleWebService_FetchListForJpk_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConsoleWebService/FetchListForJpkResponse" message="tns:IConsoleWebService_FetchListForJpk_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IConsoleWebService" type="tns:IConsoleWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SaveConfig">
+      <soap:operation soapAction="http://tempuri.org/IConsoleWebService/SaveConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfig">
+      <soap:operation soapAction="http://tempuri.org/IConsoleWebService/GetConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveInvoice">
+      <soap:operation soapAction="http://tempuri.org/IConsoleWebService/SaveInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInvoice">
+      <soap:operation soapAction="http://tempuri.org/IConsoleWebService/DeleteInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceData">
+      <soap:operation soapAction="http://tempuri.org/IConsoleWebService/GetInvoiceData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchListForJpk">
+      <soap:operation soapAction="http://tempuri.org/IConsoleWebService/FetchListForJpk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConsoleWebService">
+    <wsdl:port name="BasicHttpBinding_IConsoleWebService" binding="tns:BasicHttpBinding_IConsoleWebService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/AccountingApp.WCF/ConsoleWebService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

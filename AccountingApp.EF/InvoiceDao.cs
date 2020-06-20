@@ -8,10 +8,6 @@ namespace AccountingApp.EF
 {
     public class InvoiceDao : BaseDao<invoice>, IInvoiceDao
     {
-        public InvoiceDao()
-        {
-        }
-
         public override IList<invoice> FetchList()
         {
             return context.invoice.ToList();

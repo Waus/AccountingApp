@@ -6,16 +6,21 @@ namespace AccountingApp.Logic
 {
     public class ConfigOperations
     {
-        private IConfigDao dao;
+        private readonly IConfigDao dao;
 
         public ConfigOperations()
         {
             dao = new ConfigDao();
         }
 
-        public config GetConfig(int configId)
+        public void SaveConfig(config config)
         {
-            return dao.Get(configId);
+            dao.Save(config);
+        }
+
+        public config GetConfig()
+        {
+            return dao.GetConfig();
         }
     }
 }

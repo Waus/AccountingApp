@@ -8,14 +8,24 @@ namespace AccountingApp.Logic
 {
     public class InvoiceOperations
     {
-        IInvoiceDao dao;
+        private readonly IInvoiceDao dao;
 
         public InvoiceOperations()
         {
             dao = new InvoiceDao();
         }
 
-        public IList<invoice> GetInvoiceList()
+        public void SaveInvoice(invoice invoice)
+        {
+            dao.Save(invoice);
+        }
+
+        public void DeleteInvoice(invoice invoice)
+        {
+            dao.Delete(invoice);
+        }
+
+        public IList<invoice> GetInvoiceData()
         {
             return dao.FetchList();
         }

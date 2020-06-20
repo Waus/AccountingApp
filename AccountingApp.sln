@@ -13,6 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingApp.Dao", "Accoun
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingApp.Console", "AccountingApp.Console\AccountingApp.Console.csproj", "{948AECEC-0093-4E75-ADAE-0F8F676B5C0F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BEE878B9-0839-4761-B926-26B977219F8D} = {BEE878B9-0839-4761-B926-26B977219F8D}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingApp.Logic", "AccountingApp.Logic\AccountingApp.Logic.csproj", "{D54ECEFD-6E84-4430-B79C-B416195F41BE}"
 EndProject

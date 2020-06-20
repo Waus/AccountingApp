@@ -1,5 +1,4 @@
-﻿using AccountingApp.Dao;
-using AccountingApp.EF;
+﻿using AccountingApp.Console.ConsoleWebService;
 using AccountingApp.Forms;
 using AccountingApp.Model;
 using System;
@@ -13,20 +12,16 @@ namespace AccountingApp.Controllers
 
         private MainForm View { get; set; }
 
-        private IInvoiceDao InvoiceDao { get; set; }
-
-        private IConfigDao ConfigDao { get; set; }
+        private ConsoleWebServiceClient consoleWebServiceClient = new ConsoleWebServiceClient();
 
         public MainFormController(MainForm view)
         {
             View = view;
-            InvoiceDao = new InvoiceDao();
-            ConfigDao = new ConfigDao();
         }
 
         public void PrepareView(MainForm view)
         {
-            var list = FetchList();
+            var list = GetInvoiceData();
             AddEvents(view);
             view.SetDataSource(list);
             view.SetController();
@@ -40,7 +35,7 @@ namespace AccountingApp.Controllers
 
         public void RefreshView(MainForm view)
         {
-            var list = FetchList();
+            var list = GetInvoiceData();
             view.SetDataSource(list);
         }
 
@@ -71,10 +66,10 @@ namespace AccountingApp.Controllers
                 invoice.date_added = DateTime.Now;
             if (invoice.invoice_id == 0)
             {
-                InvoiceDao.Save(invoice);
+                SaveInvoice(invoice);
                 RefreshView(View);
             }
-            else InvoiceDao.Save(invoice);
+            else SaveInvoice(invoice);
         }
 
         public void dlg_OnDelete(object entity, MainForm view)
@@ -91,7 +86,7 @@ namespace AccountingApp.Controllers
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
-                InvoiceDao.Delete(invoice);
+                DeleteInvoice(invoice);
                 RefreshView(view);
             }
             else
@@ -103,7 +98,7 @@ namespace AccountingApp.Controllers
         public void dlg_OnSaveConfig(object entity, MainForm view)
         {
             config config = entity as config;
-            ConfigDao.Save(config);
+            SaveConfig(config);
         }
 
         public void dlg_OnGenerateJpk(DateTime dateFrom, DateTime dateTo, MainForm view)
@@ -116,19 +111,34 @@ namespace AccountingApp.Controllers
             generator.GenerateJpk(invoices, config, dateFrom, dateTo);     
         }
 
-        public IList<invoice> FetchList()
+        public void SaveConfig(config config)
         {
-            return InvoiceDao.FetchList();
+            consoleWebServiceClient.SaveConfig(config);
+        }
+
+        public void DeleteInvoice(invoice invoice)
+        {
+            consoleWebServiceClient.DeleteInvoice(invoice);
+        }
+
+        public void SaveInvoice(invoice invoice)
+        {
+            consoleWebServiceClient.SaveInvoice(invoice);
+        }
+
+        public IList<invoice> GetInvoiceData()
+        {
+            return consoleWebServiceClient.GetInvoiceData();
         }
 
         public IList<invoice> FetchListForJpk(DateTime dateFrom, DateTime dateTo)
         {
-            return InvoiceDao.FetchListForJpk(dateFrom, dateTo);
+            return consoleWebServiceClient.FetchListForJpk(dateFrom, dateTo);
         }
 
         public config GetConfigData()
         {
-            return ConfigDao.Get(1);
+            return consoleWebServiceClient.GetConfig();
         }
 
 

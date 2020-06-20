@@ -7,17 +7,17 @@ namespace AccountingApp.EF
 {
     public class ConfigDao : BaseDao<config>, IConfigDao
     {
-        public ConfigDao()
-        {
-        }
-
         public override IList<config> FetchList()
         {
-            //throw NotImplementedException;
-            return null;
+            return context.config.ToList();
         }
 
         public override config Get(int configId)
+        {
+            return context.config.Where(a => a.config_id == configId).FirstOrDefault();
+        }
+
+        public config GetConfig()
         {
             return context.config.FirstOrDefault();
         }
