@@ -7,39 +7,42 @@ namespace AccountingApp.WCF
 {
     public class ConsoleWebService : IConsoleWebService
     {
+        ConfigOperations ConfigOperations { get; set; } = new ConfigOperations();
+        InvoiceOperations InvoiceOperations { get; set; } = new InvoiceOperations();
+
         public void SaveConfig(config config)
         {
-            new ConfigOperations().SaveConfig(config);
+            ConfigOperations.SaveConfig(config);
         }
 
         public config GetConfig()
         {
-            return new ConfigOperations().GetConfig();
+            return ConfigOperations.GetConfig();
         }
 
         public void SaveInvoice(invoice invoice)
         {
-            new InvoiceOperations().SaveInvoice(invoice);
+            InvoiceOperations.SaveInvoice(invoice);
         }
 
         public void DeleteInvoice(invoice invoice)
         {
-            new InvoiceOperations().DeleteInvoice(invoice);
+            InvoiceOperations.DeleteInvoice(invoice);
         }
 
         public IList<invoice> GetInvoiceData()
         {
-            return new InvoiceOperations().GetInvoiceData();
+            return InvoiceOperations.GetInvoiceData();
         }
 
         //public invoice GetInvoice(int invoiceId)
         //{
-        //    return new InvoiceOperations().GetInvoice(invoiceId);
+        //    return InvoiceOperations.GetInvoice(invoiceId);
         //}
 
         public IList<invoice> FetchListForJpk(DateTime dateFrom, DateTime dateTo)
         {
-            return new InvoiceOperations().FetchListForJpk(dateFrom, dateTo);
+            return InvoiceOperations.FetchListForJpk(dateFrom, dateTo);
         }
     }
 }
