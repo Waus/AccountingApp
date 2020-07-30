@@ -33,7 +33,7 @@ namespace AccountingApp.EF
         public void Delete(TEntity entity)
         {
             DbSet dbSet = context.Set(typeof(TEntity));
-            dbSet.Remove(entity);
+            context.Entry(entity).State = EntityState.Deleted;
             context.SaveChanges();
         }
 
