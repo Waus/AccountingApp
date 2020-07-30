@@ -1,5 +1,6 @@
 ﻿using AccountingApp.Console.ConsoleWebService;
 using AccountingApp.Forms;
+using AccountingApp.Logic;
 using AccountingApp.Model;
 using System;
 using System.Collections.Generic;
@@ -111,34 +112,43 @@ namespace AccountingApp.Controllers
             generator.GenerateJpk(invoices, config, dateFrom, dateTo);     
         }
 
+        ConfigOperations ConfigOperations { get; set; } = new ConfigOperations();
+        InvoiceOperations InvoiceOperations { get; set; } = new InvoiceOperations();
+
         public void SaveConfig(config config)
         {
-            consoleWebServiceClient.SaveConfig(config);
+            ConfigOperations.SaveConfig(config);
+            //consoleWebServiceClient.SaveConfig(config);
         }
 
         public void DeleteInvoice(invoice invoice)
         {
-            consoleWebServiceClient.DeleteInvoice(invoice);
+            InvoiceOperations.DeleteInvoice(invoice);
+            //consoleWebServiceClient.DeleteInvoice(invoice);
         }
 
         public void SaveInvoice(invoice invoice)
         {
-            consoleWebServiceClient.SaveInvoice(invoice);
+            InvoiceOperations.SaveInvoice(invoice);
+            //consoleWebServiceClient.SaveInvoice(invoice);
         }
 
         public IList<invoice> GetInvoiceData()
         {
-            return consoleWebServiceClient.GetInvoiceData();
+            return InvoiceOperations.GetInvoiceData();
+            //return consoleWebServiceClient.GetInvoiceData();
         }
 
         public IList<invoice> FetchListForJpk(DateTime dateFrom, DateTime dateTo)
         {
-            return consoleWebServiceClient.FetchListForJpk(dateFrom, dateTo);
+            return InvoiceOperations.FetchListForJpk(dateFrom, dateTo);
+            //return consoleWebServiceClient.FetchListForJpk(dateFrom, dateTo);
         }
 
         public config GetConfigData()
         {
-            return consoleWebServiceClient.GetConfig();
+            return ConfigOperations.GetConfig();
+            //return consoleWebServiceClient.GetConfig();
         }
 
 
