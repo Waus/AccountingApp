@@ -41,6 +41,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -61,6 +62,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="ConnectionStrings.cs" />
     <Compile Include="Controllers\MainFormController.cs" />
     <Compile Include="Forms\InvoiceEditForm.cs">
       <SubType>Form</SubType>
@@ -126,6 +128,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AccountingApp.Helpers\AccountingApp.Helpers.csproj">
+      <Project>{17b79189-1229-44b2-8340-3eadad2464c2}</Project>
+      <Name>AccountingApp.Helpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AccountingApp.Logic\AccountingApp.Logic.csproj">
       <Project>{d54ecefd-6e84-4430-b79c-b416195f41be}</Project>
       <Name>AccountingApp.Logic</Name>

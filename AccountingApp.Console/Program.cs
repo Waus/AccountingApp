@@ -1,4 +1,5 @@
 ﻿using AccountingApp.Controllers;
+using AccountingApp.Helpers;
 using System;
 using System.Windows.Forms;
 
@@ -12,6 +13,8 @@ namespace AccountingApp.Console
         [STAThread]
         static void Main()
         {
+            ConnectionStrings.PrepareConnectionString("AccountingAppEntities");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
