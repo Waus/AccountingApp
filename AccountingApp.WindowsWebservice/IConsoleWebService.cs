@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ServiceModel;
 
-namespace AccountingApp.WCF
+namespace AccountingApp.WindowsWebservice
 {
     [ServiceContract]
     public interface IConsoleWebService

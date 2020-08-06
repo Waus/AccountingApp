@@ -90,9 +90,9 @@
       <Project>{8694688f-9ed1-46ef-b6ae-6d906a2c8015}</Project>
       <Name>AccountingApp.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AccountingApp.WCF\AccountingApp.WCF.csproj">
+    <ProjectReference Include="..\AccountingApp.WindowsWebservice\AccountingApp.WindowsWebservice.csproj">
       <Project>{bee878b9-0839-4761-b926-26b977219f8d}</Project>
-      <Name>AccountingApp.WCF</Name>
+      <Name>AccountingApp.WindowsWebservice</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

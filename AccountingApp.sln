@@ -26,7 +26,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingApp.Logic", "Acco
 		{17B79189-1229-44B2-8340-3EADAD2464C2} = {17B79189-1229-44B2-8340-3EADAD2464C2}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingApp.WCF", "AccountingApp.WCF\AccountingApp.WCF.csproj", "{BEE878B9-0839-4761-B926-26B977219F8D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingApp.WindowsWebservice", "AccountingApp.WindowsWebservice\AccountingApp.WindowsWebservice.csproj", "{BEE878B9-0839-4761-B926-26B977219F8D}"
 	ProjectSection(ProjectDependencies) = postProject
 		{17B79189-1229-44B2-8340-3EADAD2464C2} = {17B79189-1229-44B2-8340-3EADAD2464C2}
 	EndProjectSection
