@@ -13,19 +13,24 @@ namespace AccountingApp.Console
         [STAThread]
         static void Main()
         {
-            ConnectionStrings.PrepareConnectionString("AccountingAppEntities");
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                MainForm view = new MainForm();
+                view.Visible = false;
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
-            MainForm view = new MainForm();
-            view.Visible = false;
-
-            MainFormController controller = new MainFormController(view);
-            controller.PrepareView(view);
-            controller.PrepareConfigTab(view);
-            Application.Run(view);
-            //Application.Run(new MainForm());
+                MainFormController controller = new MainFormController(view);
+                controller.PrepareView(view);
+                controller.PrepareConfigTab(view);
+                Application.Run(view);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Wystąpił błąd i aplikacja zostanie zamknięta. " 
+                    + e.Message + "," + e.StackTrace 
+                    + ((e.InnerException != null) ? e.InnerException.Message + e.InnerException.StackTrace : ""));
+            }
         }
     }
 }

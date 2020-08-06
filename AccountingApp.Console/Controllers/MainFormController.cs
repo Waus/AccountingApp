@@ -1,6 +1,5 @@
 ﻿using AccountingApp.Console.ConsoleWebService;
 using AccountingApp.Forms;
-using AccountingApp.Logic;
 using AccountingApp.Model;
 using System;
 using System.Collections.Generic;
@@ -10,7 +9,6 @@ namespace AccountingApp.Controllers
 {
     class MainFormController
     {
-
         private MainForm View { get; set; }
 
         private ConsoleWebServiceClient consoleWebServiceClient = new ConsoleWebServiceClient();
@@ -109,46 +107,37 @@ namespace AccountingApp.Controllers
             JpkGenerator generator = new JpkGenerator();
             IList<invoice> invoices = FetchListForJpk(dateFrom, dateTo);
             config config = GetConfigData();
-            generator.GenerateJpk(invoices, config, dateFrom, dateTo);     
+            generator.GenerateJpk(invoices, config, dateFrom, dateTo);
         }
-
-        ConfigOperations ConfigOperations { get; set; } = new ConfigOperations();
-        InvoiceOperations InvoiceOperations { get; set; } = new InvoiceOperations();
 
         public void SaveConfig(config config)
         {
-            ConfigOperations.SaveConfig(config);
-            //consoleWebServiceClient.SaveConfig(config);
+            consoleWebServiceClient.SaveConfig(config);
         }
 
         public void DeleteInvoice(invoice invoice)
         {
-            InvoiceOperations.DeleteInvoice(invoice);
-            //consoleWebServiceClient.DeleteInvoice(invoice);
+            consoleWebServiceClient.DeleteInvoice(invoice);
         }
 
         public void SaveInvoice(invoice invoice)
         {
-            InvoiceOperations.SaveInvoice(invoice);
-            //consoleWebServiceClient.SaveInvoice(invoice);
+            consoleWebServiceClient.SaveInvoice(invoice);
         }
 
         public IList<invoice> GetInvoiceData()
         {
-            return InvoiceOperations.GetInvoiceData();
-            //return consoleWebServiceClient.GetInvoiceData();
+            return consoleWebServiceClient.GetInvoiceData();
         }
 
         public IList<invoice> FetchListForJpk(DateTime dateFrom, DateTime dateTo)
         {
-            return InvoiceOperations.FetchListForJpk(dateFrom, dateTo);
-            //return consoleWebServiceClient.FetchListForJpk(dateFrom, dateTo);
+            return consoleWebServiceClient.FetchListForJpk(dateFrom, dateTo);
         }
 
         public config GetConfigData()
         {
-            return ConfigOperations.GetConfig();
-            //return consoleWebServiceClient.GetConfig();
+            return consoleWebServiceClient.GetConfig();
         }
 
 

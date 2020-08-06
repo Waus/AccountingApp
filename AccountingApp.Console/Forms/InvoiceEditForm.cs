@@ -25,11 +25,6 @@ namespace AccountingApp.Forms
             Close();
         }
 
-        private void SaveBtn_Click(object sender, EventArgs e)
-        {
-            OnSave?.Invoke(bindingSource.Current, this);
-        }
-
         private void CancelBtn_Click(object sender, EventArgs e)
         {
             this.Close();
