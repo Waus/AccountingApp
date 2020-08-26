@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWindowsWebserviceConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="aT9d2CyXwrMqfKQMMMEcpbJc/i4Ma2+YDVAYz5h/H+U=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="DH6ROnYH1pwEb7zSuV9UJaqEfoh9C692Ph//98eKi9o=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IConsoleWebService">
       <properties>
@@ -198,4 +198,4 @@
       </properties>
     </endpoint>
   </endpoints>
-</SavedWindowsWebserviceConfigurationInformation>
+</SavedWcfConfigurationInformation>

@@ -100,10 +100,6 @@
     </None>
     <None Include="Properties\DataSources\AccountingApp.Model.config.datasource" />
     <None Include="Properties\DataSources\AccountingApp.Model.invoice.datasource" />
-    <None Include="Properties\DataSources\JPK_generator.Model.config.datasource" />
-    <None Include="Properties\DataSources\JPK_generator.Model.invoice.datasource" />
-    <None Include="Properties\DataSources\JPK_generator.Model.invoices.datasource" />
-    <None Include="Properties\DataSources\JPK_generator.Model.test.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
