@@ -1,6 +1,5 @@
-﻿
-using AccountingApp.Dao;
-using AccountingApp.EF;
+﻿using AccountingApp.Dao;
+using AccountingApp.Dao.EF;
 using AccountingApp.Model;
 using System;
 using System.Collections.Generic;

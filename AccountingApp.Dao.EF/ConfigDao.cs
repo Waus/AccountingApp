@@ -3,7 +3,7 @@ using AccountingApp.Model;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AccountingApp.EF
+namespace AccountingApp.Dao.EF
 {
     public class ConfigDao : BaseDao<config>, IConfigDao
     {

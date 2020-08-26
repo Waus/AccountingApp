@@ -1,5 +1,5 @@
 ﻿using AccountingApp.Dao;
-using AccountingApp.EF;
+using AccountingApp.Dao.EF;
 using AccountingApp.Model;
 
 namespace AccountingApp.Logic

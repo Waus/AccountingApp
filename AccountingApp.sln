@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingApp.Model", "Acco
 		{17B79189-1229-44B2-8340-3EADAD2464C2} = {17B79189-1229-44B2-8340-3EADAD2464C2}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingApp.EF", "AccountingApp.EF\AccountingApp.EF.csproj", "{98FD6249-0FA9-421C-8A33-CA25D5F17EA5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingApp.Dao.EF", "AccountingApp.Dao.EF\AccountingApp.Dao.EF.csproj", "{98FD6249-0FA9-421C-8A33-CA25D5F17EA5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingApp.Dao", "AccountingApp.Dao\AccountingApp.Dao.csproj", "{2B59D971-0B6B-42D0-809F-2B07B8759B0C}"
 	ProjectSection(ProjectDependencies) = postProject

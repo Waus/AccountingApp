@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AccountingApp.EF
+namespace AccountingApp.Dao.EF
 {
     public class InvoiceDao : BaseDao<invoice>, IInvoiceDao
     {

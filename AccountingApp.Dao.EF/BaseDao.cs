@@ -3,7 +3,7 @@ using AccountingApp.Model;
 using System.Collections.Generic;
 using System.Data.Entity;
 
-namespace AccountingApp.EF
+namespace AccountingApp.Dao.EF
 {
     public abstract class BaseDao<TEntity> : IBaseDao<TEntity>
         where TEntity : class, new()

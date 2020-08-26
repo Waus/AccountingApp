@@ -56,13 +56,13 @@
     <Compile Include="JpkGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AccountingApp.Dao.EF\AccountingApp.Dao.EF.csproj">
+      <Project>{98fd6249-0fa9-421c-8a33-ca25d5f17ea5}</Project>
+      <Name>AccountingApp.Dao.EF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AccountingApp.Dao\AccountingApp.Dao.csproj">
       <Project>{2b59d971-0b6b-42d0-809f-2b07b8759b0c}</Project>
       <Name>AccountingApp.Dao</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AccountingApp.EF\AccountingApp.EF.csproj">
-      <Project>{98fd6249-0fa9-421c-8a33-ca25d5f17ea5}</Project>
-      <Name>AccountingApp.EF</Name>
     </ProjectReference>
     <ProjectReference Include="..\AccountingApp.Model\AccountingApp.Model.csproj">
       <Project>{8694688f-9ed1-46ef-b6ae-6d906a2c8015}</Project>
