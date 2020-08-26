@@ -7,8 +7,19 @@ namespace AccountingApp.WindowsWebservice
 {
     public class ConsoleWebService : IConsoleWebService
     {
-        ConfigOperations ConfigOperations { get; set; } = new ConfigOperations();
-        InvoiceOperations InvoiceOperations { get; set; } = new InvoiceOperations();
+        private readonly IConfigOperations ConfigOperations;
+        private readonly IInvoiceOperations InvoiceOperations;
+
+        public ConsoleWebService(IConfigOperations configOperations, IInvoiceOperations invoiceOperations)
+        {
+            ConfigOperations = configOperations;
+            InvoiceOperations = invoiceOperations;
+        }
+
+        //class without default constructor can't be serialized.
+        public ConsoleWebService()
+        {
+        }
 
         public void SaveConfig(config config)
         {

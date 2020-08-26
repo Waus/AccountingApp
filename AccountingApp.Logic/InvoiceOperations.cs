@@ -1,4 +1,5 @@
-﻿using AccountingApp.Dao;
+﻿
+using AccountingApp.Dao;
 using AccountingApp.EF;
 using AccountingApp.Model;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AccountingApp.Logic
 {
-    public class InvoiceOperations
+    public class InvoiceOperations : IInvoiceOperations
     {
         private readonly IInvoiceDao dao;
 

@@ -4,7 +4,7 @@ using AccountingApp.Model;
 
 namespace AccountingApp.Logic
 {
-    public class ConfigOperations
+    public class ConfigOperations : IConfigOperations
     {
         private readonly IConfigDao dao;
 

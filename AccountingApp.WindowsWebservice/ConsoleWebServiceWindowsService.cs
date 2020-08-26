@@ -1,4 +1,6 @@
-﻿using AccountingApp.Helpers;
+﻿using Autofac;
+using Autofac.Core;
+using Autofac.Integration.Wcf;
 using System.ServiceModel;
 using System.ServiceProcess;
 
@@ -19,7 +21,16 @@ namespace AccountingApp.WindowsWebservice
                 serviceHost.Close();
             }
 
+            IContainer container = Bootstrapper.RegisterContainerBuilder().Build();
             serviceHost = new ServiceHost(typeof(ConsoleWebService));
+
+            IComponentRegistration registration;
+            if (!container.ComponentRegistry.TryGetRegistration(new TypedService(typeof(IConsoleWebService)), out registration))
+            {
+                //Environment.Exit(-1);
+            }
+
+            serviceHost.AddDependencyInjectionBehavior<IConsoleWebService>(container);
             serviceHost.Open();
         }
 
