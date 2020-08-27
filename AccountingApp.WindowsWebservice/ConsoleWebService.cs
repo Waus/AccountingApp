@@ -7,10 +7,10 @@ namespace AccountingApp.WindowsWebservice
 {
     public class ConsoleWebService : IConsoleWebService
     {
-        private readonly IConfigOperations ConfigOperations;
-        private readonly IInvoiceOperations InvoiceOperations;
+        private readonly ConfigOperations ConfigOperations;
+        private readonly InvoiceOperations InvoiceOperations;
 
-        public ConsoleWebService(IConfigOperations configOperations, IInvoiceOperations invoiceOperations)
+        public ConsoleWebService(ConfigOperations configOperations, InvoiceOperations invoiceOperations)
         {
             ConfigOperations = configOperations;
             InvoiceOperations = invoiceOperations;

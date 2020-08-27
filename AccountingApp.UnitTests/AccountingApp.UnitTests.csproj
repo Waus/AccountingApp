@@ -78,7 +78,7 @@
       <Project>{2b59d971-0b6b-42d0-809f-2b07b8759b0c}</Project>
       <Name>AccountingApp.Dao</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AccountingApp.EF\AccountingApp.Dao.EF.csproj">
+    <ProjectReference Include="..\AccountingApp.Dao.EF\AccountingApp.Dao.EF.csproj">
       <Project>{98fd6249-0fa9-421c-8a33-ca25d5f17ea5}</Project>
       <Name>AccountingApp.Dao.EF</Name>
     </ProjectReference>

@@ -4,23 +4,23 @@ using AccountingApp.Model;
 
 namespace AccountingApp.Logic
 {
-    public class ConfigOperations : IConfigOperations
+    public class ConfigOperations
     {
-        private readonly IConfigDao dao;
+        private readonly IConfigDao Dao;
 
-        public ConfigOperations()
+        public ConfigOperations(IConfigDao configDao)
         {
-            dao = new ConfigDao();
+            Dao = configDao;
         }
 
         public void SaveConfig(config config)
         {
-            dao.Save(config);
+            Dao.Save(config);
         }
 
         public config GetConfig()
         {
-            return dao.GetConfig();
+            return Dao.GetConfig();
         }
     }
 }

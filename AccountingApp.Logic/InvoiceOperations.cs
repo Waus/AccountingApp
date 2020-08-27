@@ -6,38 +6,38 @@ using System.Collections.Generic;
 
 namespace AccountingApp.Logic
 {
-    public class InvoiceOperations : IInvoiceOperations
+    public class InvoiceOperations
     {
-        private readonly IInvoiceDao dao;
+        private readonly IInvoiceDao Dao;
 
-        public InvoiceOperations()
+        public InvoiceOperations(IInvoiceDao invoiceDao)
         {
-            dao = new InvoiceDao();
+            Dao = invoiceDao;
         }
 
         public void SaveInvoice(invoice invoice)
         {
-            dao.Save(invoice);
+            Dao.Save(invoice);
         }
 
         public void DeleteInvoice(invoice invoice)
         {
-            dao.Delete(invoice);
+            Dao.Delete(invoice);
         }
 
         public IList<invoice> GetInvoiceData()
         {
-            return dao.FetchList();
+            return Dao.FetchList();
         }
 
         public invoice GetInvoice(int invoiceId)
         {
-            return dao.Get(invoiceId);
+            return Dao.Get(invoiceId);
         }
 
         public IList<invoice> FetchListForJpk(DateTime dateFrom, DateTime dateTo)
         {
-            return dao.FetchListForJpk(dateFrom, dateTo);
+            return Dao.FetchListForJpk(dateFrom, dateTo);
         }
     }
 }
