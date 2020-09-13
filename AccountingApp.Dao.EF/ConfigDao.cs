@@ -1,5 +1,4 @@
-﻿using AccountingApp.Dao;
-using AccountingApp.Model;
+﻿using AccountingApp.Model;
 using System.Collections.Generic;
 using System.Linq;
 

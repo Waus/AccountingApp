@@ -48,7 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseCrudOperations.cs" />
     <Compile Include="ConfigOperations.cs" />
+    <Compile Include="IBaseCrudOperations.cs" />
     <Compile Include="InvoiceOperations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="JpkGenerator.cs" />

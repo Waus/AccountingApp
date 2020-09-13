@@ -1,28 +1,15 @@
 ﻿using AccountingApp.Dao;
-using AccountingApp.Dao.EF;
 using AccountingApp.Model;
 using System;
 using System.Collections.Generic;
 
 namespace AccountingApp.Logic
 {
-    public class InvoiceOperations
+    public class InvoiceOperations : BaseCrudOperations<IInvoiceDao, invoice>
     {
-        private readonly IInvoiceDao Dao;
-
         public InvoiceOperations(IInvoiceDao invoiceDao)
         {
             Dao = invoiceDao;
-        }
-
-        public void SaveInvoice(invoice invoice)
-        {
-            Dao.Save(invoice);
-        }
-
-        public void DeleteInvoice(invoice invoice)
-        {
-            Dao.Delete(invoice);
         }
 
         public IList<invoice> GetInvoiceData()

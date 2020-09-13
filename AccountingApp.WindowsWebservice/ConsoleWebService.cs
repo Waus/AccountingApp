@@ -23,7 +23,7 @@ namespace AccountingApp.WindowsWebservice
 
         public void SaveConfig(config config)
         {
-            ConfigOperations.SaveConfig(config);
+            ConfigOperations.Save(config);
         }
 
         public config GetConfig()
@@ -33,12 +33,12 @@ namespace AccountingApp.WindowsWebservice
 
         public void SaveInvoice(invoice invoice)
         {
-            InvoiceOperations.SaveInvoice(invoice);
+            InvoiceOperations.Save(invoice);
         }
 
         public void DeleteInvoice(invoice invoice)
         {
-            InvoiceOperations.DeleteInvoice(invoice);
+            InvoiceOperations.Delete(invoice);
         }
 
         public IList<invoice> GetInvoiceData()
